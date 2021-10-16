@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Header from './Header/header.js';
-import Homepage from './Homepage/homepage.js';
+import Header from './components/Header/header.js';
+import Homepage from './components/Homepage/homepage.js';
 
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <Homepage />
+      hellooo
     </div>
   );
 }
