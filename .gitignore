@@ -24,3 +24,6 @@ yarn-error.log*
 
 #config.js
 /server/config.js
+
+#packagelock
+package-lock.json
