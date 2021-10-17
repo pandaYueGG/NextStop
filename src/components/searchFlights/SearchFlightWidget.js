@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import FlightsFilter from './FlightsFilter';
+import Filters from './Filters';
 
 const SearchFlightWidget = () => {
   return (
     <div>
-      <FlightsFilter />
+      <Filters />
     </div>
   );
 };
