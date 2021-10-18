@@ -1,5 +1,5 @@
 const axios = require('axios');
-const TICKETMASTER_API_KEY = require('./config.js');
+const TOKENS = require('./config.js');
 
 // Plan to include helper functions that interact with necessary APIs here
 module.exports = {
@@ -9,9 +9,9 @@ module.exports = {
     const sort = req.body.sortMethod || 'date,asc';
     const size = req.body.size || 5;
 
-    axios.get(`https://app.ticketmaster.com/discovery/v2/events?apikey=${TICKETMASTER_API_KEY}&city=[${city}]&startDate=${date}&sort=${sort}&size=${size}`)
-      .then((data) => {
-        const events = data.data._embedded.events
+    axios.get(`https://app.ticketmaster.com/discovery/v2/events?apikey=${TOKENS.TICKETMASTER_API_KEY}&city=[${city}]&startDate=${date}&sort=${sort}&size=${size}`)
+      .then((response) => {
+        const events = response.data._embedded.events
         let output = {"events": []};
         for (var i = 0; i < events.length; i++) {
           let current = {
@@ -36,5 +36,46 @@ module.exports = {
         }
         res.status(200).send(output);
       })
-  }
+  },
+  getHotels: (req, res) => {
+    const city = req.body.city.split(' ').join('+');
+    const checkin_date = req.body.checkin_date;
+    const checkout_date = req.body.checkout_date;
+
+    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${TOKENS.GOOGLE_GEOCODING_KEY}`)
+      .then((response) => {
+        const lat = response.data.results[0].geometry.location.lat;
+        const lng = response.data.results[0].geometry.location.lng;
+        const options = {
+          method: 'GET',
+          url: 'https://hotels-com-provider.p.rapidapi.com/v1/hotels/nearby',
+          params: {
+            latitude: lat,
+            currency: 'USD',
+            longitude: lng,
+            checkout_date: checkout_date,
+            sort_order: 'STAR_RATING_HIGHEST_FIRST',
+            checkin_date: checkin_date,
+            adults_number: '1',
+            locale: 'en_US',
+            guest_rating_min: '4',
+            star_rating_ids: '3,4,5',
+            page_number: '1',
+            price_min: '10',
+            accommodation_ids: '1,3,8,20'
+          },
+          headers: {
+            'x-rapidapi-host': 'hotels-com-provider.p.rapidapi.com',
+            'x-rapidapi-key': TOKENS.RAPID_API_KEY,
+          }
+        }
+
+        axios.request(options)
+          .then((data) => {
+            const hotels = data.data.searchResults.results;
+            const output = {};
+            res.status(200).send();
+          })
+      })
+  },
 };
