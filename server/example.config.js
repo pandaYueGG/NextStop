@@ -1,6 +1,6 @@
 // Create a config.js file in the same directory as this file.
-// Make sure to include your api token in the TOKEN constant
+// Make sure to include your api token(s) in their respective constant
 
-const TOKEN = '<ENTER YOUR API TOKEN HERE>';
+const TICKETMASTER_API_KEY = '<ENTER YOUR API TOKEN HERE>';
 
-module.exports = TOKEN;
+module.exports = TICKETMASTER_API_KEY;
