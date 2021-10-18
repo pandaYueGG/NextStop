@@ -9,9 +9,6 @@ function App() {
     <div className="App">
       <Header />
       <Homepage />
-      <div className="border-2 border-black border-dashed bg-blue-500">
-        <h1>Hellooooo World</h1>
-      </div>
     </div>
   );
 }
