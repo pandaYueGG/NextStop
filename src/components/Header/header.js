@@ -18,10 +18,10 @@ function header() {
                     </div>
                     
                     <div className="flex items-center">
-                        <a href="#" className="py-5">Flights</a>
-                        <a href="#" className="py-5 px-5">Hotels</a>
-                        <a href="#" className="py-5 pr-3">Login</a>
-                        <a href="#" className="py-2 px-3 text-white bg-red-400 rounded mr-5">Signup</a>
+                        <a href="#" className="py-5 hover:text-gray-500">Flights</a>
+                        <a href="#" className="py-5 px-5 hover:text-gray-500">Hotels</a>
+                        <a href="#" className="py-5 pr-3 hover:text-gray-500">Login</a>
+                        <a href="#" className="py-2 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Signup</a>
                     </div>
                 </div>
 
