@@ -6,7 +6,6 @@ import pumpkin from './pumpkin.jpeg';
 import wine from './wine.jpeg';
 
 function Events() {
-
   const [showEventModal, setShowEventModal] = React.useState(false);
 
   const getModalInfoEvents = () => {

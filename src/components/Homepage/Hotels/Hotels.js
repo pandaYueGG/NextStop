@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import cabin from './cabin.jpeg';
 import family from './family.jpeg';
 
 function Hotels() {
-  const [showHotelModal, setShowHotelModal] = React.useState(false);
-  const [hotelModalInfo, setHotelModalInfo] = React.useState([]);
+  const [showHotelModal, setShowHotelModal] = useState(false);
+  const [hotelModalInfo, setHotelModalInfo] = useState([]);
 
   const getModalInfoHotels = (sortOrderBudgetQuery) => {
     axios.get('http://localhost:3001/api/hotels/', { params: { sort_order: sortOrderBudgetQuery}})
