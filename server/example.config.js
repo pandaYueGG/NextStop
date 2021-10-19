@@ -6,4 +6,6 @@ module.exports = {
     TICKETMASTER_API_KEY:'<ENTER YOUR API TOKEN HERE>',
     // https://cloud.google.com/apis
     GOOGLE_GEOCODING_KEY: '<ENTER YOUR API TOKEN HERE>',
+    // https://rapidapi.com/tipsters/api/hotels-com-provider/
+    RAPID_API_KEY: '<ENTER YOUR API TOKEN HERE>',
 }

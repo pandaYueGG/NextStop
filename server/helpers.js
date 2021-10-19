@@ -1,7 +1,6 @@
 const axios = require('axios');
 const TOKENS = require('./config.js');
 
-// Plan to include helper functions that interact with necessary APIs here
 module.exports = {
   getEvents: (req, res) => {
     const city = req.body.city || 'San Francisco';
@@ -38,9 +37,10 @@ module.exports = {
       })
   },
   getHotels: (req, res) => {
-    const city = req.body.city.split(' ').join('+');
-    const checkin_date = req.body.checkin_date;
-    const checkout_date = req.body.checkout_date;
+    const city = req.body.city.split(' ').join('+') || 'San+Francisco';
+    const checkin_date = req.body.checkin_date || '2021-10-24';
+    const checkout_date = req.body.checkout_date || '2021-10-25';
+    const sortOrder = req.body.sort_order || 'STAR_RATING_HIGHEST_FIRST';
 
     axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${TOKENS.GOOGLE_GEOCODING_KEY}`)
       .then((response) => {
@@ -54,7 +54,7 @@ module.exports = {
             currency: 'USD',
             longitude: lng,
             checkout_date: checkout_date,
-            sort_order: 'STAR_RATING_HIGHEST_FIRST',
+            sort_order: sortOrder,
             checkin_date: checkin_date,
             adults_number: '1',
             locale: 'en_US',
@@ -73,8 +73,28 @@ module.exports = {
         axios.request(options)
           .then((data) => {
             const hotels = data.data.searchResults.results;
-            const output = {};
-            res.status(200).send();
+            const output = {'hotels': []};
+
+            for (var i = 0; i < 20; i++) {
+              let current = {
+                id: hotels[i].id,
+                name: hotels[i].name,
+                starRating: hotels[i].guestReviews.unformattedRating,
+                address: {
+                  streetAddress: hotels[i].address.streetAddress,
+                  city: hotels[i].address.locality,
+                  zip: hotels[i].address.postalCode,
+                },
+                pricePerNight: hotels[i].ratePlan.price.exactCurrent,
+                neighborhood: hotels[i].neighbourhood,
+                coordinates: {
+                  lat: hotels[i].coordinate.lat,
+                  lng: hotels[i].coordinate.lon,
+                }
+              };
+              output.hotels.push(current)
+            }
+            res.status(200).send(output);
           })
       })
   },
