@@ -1,18 +1,30 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/header.js';
 import Homepage from './components/Homepage/homepage.js';
+import Registration from './components/Registration/registration.js';
 
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Homepage />
-      <div className="border-2 border-black border-dashed bg-blue-500">
-        <h1>Hellooooo World</h1>
+    <Router>
+      <div className="App">
+        <Header />
+        <div className="content">
+          <Switch>
+            <Route exact path="/">
+              <Homepage />
+            </Route>
+            <Route exact path="/registration">
+              <Registration />
+            </Route>
+          </Switch>
+        </div>
+        
       </div>
-    </div>
+    </Router>
+
   );
 }
 
