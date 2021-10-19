@@ -6,7 +6,7 @@ const { X_RAPID_API_KEY } = require('./config.js');
 module.exports = {
 
   getAirport: (req, res) => {
-    const query = req.body.location || 'San Francisco';
+    const location = req.body.location || 'San Francisco';
 
     var options = {
       method: 'GET',
