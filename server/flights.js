@@ -42,15 +42,6 @@ module.exports = {
 
     var options = {
       method: 'GET',
-      url: 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/US/ORD/2021-10-20/2021-10-23',
-      headers: {
-        'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
-        'x-rapidapi-key': '38a17881d4msh6515f6bb65b4a24p15355fjsn46e38d040ea7'
-      }
-    };
-
-    var options = {
-      method: 'GET',
       url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/${origin}/${destination}/${outboundDate}`,
       params: { inboundpartialdate: inboundDate },
       headers: {
