@@ -1,10 +1,15 @@
-import React from 'react'
+import React from 'react';
+import Flights from '../Homepage/Flights/Flights.js';
+import Hotels from '../Homepage/Hotels/Hotels.js';
+import Events from '../Homepage/Events/events.js';
 
 function homepage() {
     return (
-        <div>
-            
-        </div>
+        <>
+            <div><Flights /></div>
+            <div><Hotels /></div>
+            <div><Events /></div>
+        </>
     )
 }
 
