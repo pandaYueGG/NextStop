@@ -1,6 +1,10 @@
-import React from 'react'
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useState } from 'react';
+import Modal from './Modal.js';
 
 function header() {
+    const [openModal, setOpenModal] = useState(false);
+
     return (
         <nav className="bg-white shadow">
             <div className="max-w-full mx-auto">
@@ -8,7 +12,7 @@ function header() {
                     <div className="flex">
                         <div>
                             <a href="#" className="flex items-center py-6 pl-5">
-                            <svg className="h-7 w-7 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg className="h-7 w-7 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                             </svg>
                             <span className="font-bold tracking-wider"> NextStop</span>
@@ -20,8 +24,10 @@ function header() {
                     <div className="flex items-center">
                         <a href="#" className="py-5 hover:text-gray-500">Flights</a>
                         <a href="#" className="py-5 px-5 hover:text-gray-500">Hotels</a>
-                        <a href="#" className="py-5 pr-3 hover:text-gray-500">Login</a>
+                        <a href="#" className="py-5 pr-3 hover:text-gray-500" onClick={() => { setOpenModal(true); }}>Login</a>
                         <a href="#" className="py-2 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Signup</a>
+                        
+                        {openModal && <Modal closeModal={setOpenModal} />}
                     </div>
                 </div>
 
