@@ -74,12 +74,13 @@ module.exports = {
           .then((data) => {
             const hotels = data.data.searchResults.results;
             const output = {'hotels': []};
-
+            console.log(hotels);
             for (var i = 0; i < 20; i++) {
               let current = {
                 id: hotels[i].id,
                 name: hotels[i].name,
                 starRating: hotels[i].guestReviews.unformattedRating,
+                image: hotels[i].optimizedThumbUrls.srpDesktop,
                 address: {
                   streetAddress: hotels[i].address.streetAddress,
                   city: hotels[i].address.locality,
