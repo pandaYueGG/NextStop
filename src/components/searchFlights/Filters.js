@@ -7,7 +7,6 @@ import FlightList from './FlightList';
 const Filters = () => {
   const [filterStop, setFilterStop] = useState([]);
 
-
   return (
     <div className="flex flex-col justify-end self-start">
       <h2 className="font-bold">Filter by</h2>

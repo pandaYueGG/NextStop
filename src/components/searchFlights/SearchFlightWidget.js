@@ -5,21 +5,26 @@ import FlightSummary from './FlightSummary';
 
 const SearchFlightWidget = () => {
   const [showList, setShowList] = useState(true)
+  const handleSelectClick = () => {
+    setShowList(false)
+  }
 
-  return (
-    <div>
-      {showList
-      ? <>
+  if (showList) {
+    return (
+      <div>
         <div className="w-1/4 float-left justify-end">
           <Filters />
         </div>
         <div className="w-3/4 float-right justify-start">
-          <FlightList handleClick={setShowList(false)} />
+          <FlightList handleSelectClick={handleSelectClick} />
         </div>
-      </>: <><FlightSummary /></>}
-    </div>
-
-  );
+      </div>
+    )
+  } else {
+    return (
+      <div><FlightSummary /></div>
+    )
+  }
 };
 
 export default SearchFlightWidget;
