@@ -37,7 +37,7 @@ module.exports = {
       })
   },
   getHotels: (req, res) => {
-    const city = req.body.city.split(' ').join('+') || 'San+Francisco';
+    const city = req.body.city?.split(' ').join('+') || 'San+Francisco';
     const checkin_date = req.body.checkin_date || '2021-10-24';
     const checkout_date = req.body.checkout_date || '2021-10-25';
     const sortOrder = req.body.sort_order || 'STAR_RATING_HIGHEST_FIRST';

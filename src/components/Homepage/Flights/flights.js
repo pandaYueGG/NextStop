@@ -7,17 +7,17 @@ import FlightsModal from './FlightsModal.js';
 
 function Flights() {
   // const [flightInfo, getFlightInfo] = useState('');
-  const [showModal, setShowModal] = React.useState(false);
+  const [showFlightModal, setShowFlightModal] = React.useState(false);
 
-  // const getModalInfoFlights = () => {
+  const getModalInfoFlights = () => {
   // sf, ny, lv
   // on image click sf / ny / lv, get flight info
   // axios.get(`all flights to san francisco`)
-  // };
+  };
 
   return (
     <>
-      {showModal ? (
+      {showFlightModal ? (
         <>
           <div
             className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
@@ -33,7 +33,7 @@ function Flights() {
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     // onClick={handleClose}
-                    onClick={() => setShowModal(false)}
+                    onClick={() => setShowFlightModal(false)}
                   >
                     <span>
                       ×
@@ -56,19 +56,19 @@ function Flights() {
       <h3 className="text-left text-3xl font-bold px-28">Popular Destinations</h3>
       <div className="py-3 px-28 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
         <div className="rounded overflow-hidden">
-          <img className="w-full h-2/3 rounded-lg shadow-inner cursor-pointer" src={SF} alt="SF" onClick={() => setShowModal(true)}></img>
+          <img className="w-full h-2/3 rounded-lg shadow-inner cursor-pointer" src={SF} alt="SF" onClick={() => setShowFlightModal(true)}></img>
           <div className="px-1 py-1">
             <div className="font-bold text-sm mb-2 text-left">SAN FRANCISCO</div>
           </div>
         </div>
         <div className="rounded overflow-hidden">
-          <img className="w-full h-2/3 rounded-lg shadow-inner cursor-pointer" src={NY} alt="NY" onClick={() => setShowModal(true)}></img>
+          <img className="w-full h-2/3 rounded-lg shadow-inner cursor-pointer" src={NY} alt="NY" onClick={() => setShowFlightModal(true)}></img>
           <div className="px-1 py-1">
             <div className="font-bold text-sm mb-2 text-left">NEW YORK CITY</div>
           </div>
         </div>
         <div className="rounded overflow-hidden">
-          <img className="w-full h-2/3 rounded-lg shadow-inner cursor-pointer" src={LV} alt="LV" onClick={() => setShowModal(true)}></img>
+          <img className="w-full h-2/3 rounded-lg shadow-inner cursor-pointer" src={LV} alt="LV" onClick={() => setShowFlightModal(true)}></img>
           <div className="px-1 py-1">
             <div className="font-bold text-sm mb-2 text-left">LAS VEGAS</div>
           </div>
