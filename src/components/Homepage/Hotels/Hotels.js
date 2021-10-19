@@ -1,41 +1,29 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import cabin from './cabin.jpeg';
-import luxury from './luxury.jpeg';
-import dog from './dog.jpeg';
-import fam from './fam.jpeg';
+import family from './family.jpeg';
 
 function Hotels() {
 
-
   return (
     <>
-      <div className="py-5 px-32 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5">
+    <h3 className="text-left text-3xl font-bold px-28">Living</h3>
+      <div className="py-3 px-28 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5 ">
         <div className="rounded overflow-hidden">
-          <img className="w-full h-64 rounded-lg" src={cabin} alt="cabin"></img>
+          <img className="w-full h-3/4 rounded-lg shadow-inner cursor-pointer" src={cabin} alt="cabin"></img>
           <div className="px-1 py-1">
-            <div className="font-bold text-sm mb-2 text-left">COZY CABINS</div>
+            <h3 className="font-bold text-sm mb-2 text-left">Luxury getaways</h3>
           </div>
         </div>
+
         <div className="rounded overflow-hidden">
-          <img className="w-full h-64 rounded-lg" src={luxury} alt="luxury"></img>
+          <img className="w-full h-3/4 rounded-lg shadow-inner cursor-pointer" src={family} alt="family"></img>
           <div className="px-1 py-1">
-            <div className="font-bold text-sm mb-2 text-left">LUXURY STAYS</div>
-          </div>
-        </div>
-        <div className="rounded overflow-hidden">
-          <img className="w-full h-64 rounded-lg" src={dog} alt="dog"></img>
-          <div className="px-1 py-1">
-            <div className="font-bold text-sm mb-2 text-left">PETS ALLOWED</div>
-          </div>
-        </div>
-        <div className="rounded overflow-hidden">
-          <img className="w-full h-64 rounded-lg" src={fam} alt="family"></img>
-          <div className="px-1 py-1">
-            <div className="font-bold text-sm mb-2 text-left">FAMILY FRIENDLY</div>
+            <h3 className="font-bold text-sm mb-2 text-left">Budget friendly</h3>
           </div>
         </div>
       </div>
+
     </>
   )
 }
