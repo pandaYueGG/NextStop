@@ -13,7 +13,7 @@ function header() {
                 <div className="flex justify-between">
                     <div className="flex">
                         <div>
-                            <a href="/homepage" className="flex items-center py-6 pl-5">
+                            <a href="/" className="flex items-center py-6 pl-5">
                             <svg className="h-7 w-7 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                             </svg>
