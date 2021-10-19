@@ -3,10 +3,10 @@ const TOKENS = require('./config.js');
 
 module.exports = {
   getEvents: (req, res) => {
-    const city = req.body.city || 'San Francisco';
-    const date = req.body.date || '2021-10-24';
-    const sort = req.body.sortMethod || 'date,asc';
-    const size = req.body.size || 5;
+    const city = req.query.city || 'San Francisco';
+    const date = req.query.date || '2021-10-24';
+    const sort = req.query.sortMethod || 'date,asc';
+    const size = req.query.size || 5;
 
     axios.get(`https://app.ticketmaster.com/discovery/v2/events?apikey=${TOKENS.TICKETMASTER_API_KEY}&city=[${city}]&startDate=${date}&sort=${sort}&size=${size}`)
       .then((response) => {
@@ -37,10 +37,10 @@ module.exports = {
       })
   },
   getHotels: (req, res) => {
-    const city = req.body.city?.split(' ').join('+') || 'San+Francisco';
-    const checkin_date = req.body.checkin_date || '2021-10-24';
-    const checkout_date = req.body.checkout_date || '2021-10-25';
-    const sortOrder = req.body.sort_order || 'STAR_RATING_HIGHEST_FIRST';
+    const city = req.query.city?.split(' ').join('+') || 'San+Francisco';
+    const checkin_date = req.query.checkin_date || '2021-10-24';
+    const checkout_date = req.query.checkout_date || '2021-10-25';
+    const sortOrder = req.query.sort_order || 'STAR_RATING_HIGHEST_FIRST';
 
     axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${TOKENS.GOOGLE_GEOCODING_KEY}`)
       .then((response) => {
