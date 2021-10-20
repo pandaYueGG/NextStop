@@ -53,7 +53,7 @@ function Events() {
                     <div className="rounded overflow-hidden h-72" key={eventInfo.id}>
                       {/* {console.log(eventInfo)} */}
                       {/* EVENT IMAGE */}
-                      <img className="w-full h-3/4 rounded-lg shadow-inner cursor-pointer"
+                      <img className="w-full h-3/5 rounded-lg shadow-inner cursor-pointer"
                         src={eventInfo.image.url}
                         alt="cabin"
                         onClick={() => { }}>
