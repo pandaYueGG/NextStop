@@ -19,7 +19,10 @@ export const Body = styled.li
   `
     font-size: 1em;
     text-align: center;
+<<<<<<< HEAD
     margin-right: 1em;
+=======
+>>>>>>> f59a010 (pulls)
   `;
 
 export const Img = styled.img
