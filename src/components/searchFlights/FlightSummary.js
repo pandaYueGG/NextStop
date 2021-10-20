@@ -22,38 +22,38 @@ const FlightSummary = () => {
   return (
     <div>
       <h2 className="text-xl font-bold text-left ml-20 my-8">Secure your booking</h2>
-      <div className="payment w-1/2 float-right mx-20 border-2 rounded-lg grid grid-rows-18 grid-cols-5">
+      <div className="payment w-1/3 h-1/2 float-right  mx-20 border-2 rounded-lg grid grid-rows-18 grid-cols-5">
         <h2 className="text-xl font-bold ml-4 mt-4 row-start-1 col-start-1 col-span-2 text-left">How would you like to pay?</h2>
-        <img className="ml-4 mt-4 row-start-2 col-span-1 inline-block flex-row" src="https://a.travel-assets.com/dms-svg/payments/cards-cc_master_card.svg" alt="MasterCard" />
-        <img className="ml-0 mt-4 row-start-2 col-span-1 inline-block flex-row" src="https://a.travel-assets.com/dms-svg/payments/cards-cc_american_express.svg" alt="AmericanExpress" />
-        <img className="ml-0 mt-4 row-start-2 col-span-1 inline-block flex-row" src="https://a.travel-assets.com/dms-svg/payments/cards-cc_discover.svg" alt="Discover"/>
-        <img className="ml-0 mt-4 row-start-2 col-span-1 inline-block flex-row" src="https://a.travel-assets.com/dms-svg/payments/cards-cc_visa.svg" alt="Visa"/>
+        <img className="ml-4 mt-2 row-start-2 col-span-1 inline-block flex-row" src="https://a.travel-assets.com/dms-svg/payments/cards-cc_master_card.svg" alt="MasterCard" />
+        <img className="mt-2 row-start-2 col-span-1 inline-block flex-row" src="https://a.travel-assets.com/dms-svg/payments/cards-cc_american_express.svg" alt="AmericanExpress" />
+        <img className="mt-2 row-start-2 col-span-1 inline-block flex-row" src="https://a.travel-assets.com/dms-svg/payments/cards-cc_discover.svg" alt="Discover"/>
+        <img className="mt-2 row-start-2 col-span-1 inline-block flex-row" src="https://a.travel-assets.com/dms-svg/payments/cards-cc_visa.svg" alt="Visa"/>
         <label className="text-xs ml-4 mt-4 row-start-3 col-start-1 col-span-3 text-left">Name on Card*</label>
         <input className="text-xs ml-4 mt-2 row-start-4 col-start-1 col-span-3 text-left w-72 h-8"
           onChange={(e) => setCardName(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-name" required />
-        <label className="text-xs ml-4 mt-4 row-start-5 col-start-1 text-left">Expiration Data*</label>
-        <input className="text-xs ml-4 mt-2 row-start-6 col-start-1 text-left w-36 h-8"
+        <label className="text-xs ml-4 mt-2 row-start-5 col-start-1 text-left">Expiration Data*</label>
+        <input className="ml-4 mt-2 row-start-6 col-start-1 text-left w-24 h-8"
           onChange={(e) => setExpiration(e.target.value)} style={{"borderWidth": 2}} type="text" id="expira-date" required />
-        <label className="text-xs ml-4 mt-4 row-start-5 col-start-2 text-left">Security Code*</label>
-        <input className="text-xs ml-4 mt-2 row-start-6 col-start-2 w-24 h-8"
+        <label className="text-xs ml-4 mt-2 row-start-5 col-start-2 text-left">Security Code*</label>
+        <input className=" ml-4 mt-2 row-start-6 col-start-2 w-24 h-8"
           onChange={(e) => setSecurityCode(e.target.value)} style={{"borderWidth": 2}} type="text" id="security-code" required />
-        <label className="text-xs ml-4 mt-4 row-start-7 col-start-1 col-span-3 text-left">Country/Territory*</label>
-        <input className="text-xs ml-4 mt-2 row-start-8 col-start-1 col-span-3 w-36 h-8"
+        <label className="text-xs ml-4 mt-2 row-start-7 col-start-1 col-span-3 text-left">Country/Territory*</label>
+        <input className=" ml-4 mt-2 row-start-8 col-start-1 col-span-3 w-36 h-8"
           onChange={(e) => setBillCountry(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-country" required />
-        <label className="text-xs ml-4 mt-4 row-start-9 col-start-1 col-span-1 text-left">Billing Address 1*</label>
-        <input className="text-xs ml-4 mt-2 row-start-10 col-start-1 col-span-2 w-72 h-8"
+        <label className="text-xs ml-4 mt-2 row-start-9 col-start-1 col-span-1 text-left">Billing Address 1*</label>
+        <input className=" ml-4 mt-2 row-start-10 col-start-1 col-span-1 w-48 h-8"
           onChange={(e) => setBillAddressOne(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-address-one" required />
-        <label className="text-xs ml-4 mt-4 row-start-9 col-start-3 text-left">Billing Address 2</label>
-        <input className="text-xs ml-4 mt-2 row-start-10 col-start-3 w-36 h-8"
-          onChange={(e) => setBillAddressTwo(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-address-two" required />
-        <label className="text-xs ml-4 mt-4 row-start-11 col-start-1 text-left">City*</label>
-        <input className="text-xs ml-4 mt-2 row-start-12 col-start-1 w-32 h-8"
+        <label className="text-xs ml-4 mt-2  row-start-9 col-start-3 text-left">Billing Address 2</label>
+        <input className="ml-4 mt-2 row-start-10 col-start-3 w-36 h-8"
+          onChange={(e) => setBillAddressTwo(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-address-two"/>
+        <label className="text-xs ml-4 mt-2 row-start-11 col-start-1 text-left">City*</label>
+        <input className=" ml-4 mt-2 row-start-12 col-start-1 w-28 h-8"
           onChange={(e) => setBillCity(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-city" required />
-        <label className="text-xs ml-4 mt-4 row-start-11 col-start-2 text-left">State*</label>
-        <input className="text-xs ml-4 mt-2 row-start-12 col-start-2 w-24 h-8"
+        <label className="text-xs ml-4 mt-2 row-start-11 col-start-2 text-left">State*</label>
+        <input className=" ml-4 mt-2 row-start-12 col-start-2 w-24 h-8"
           onChange={(e) => setCardState(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-state" required />
-        <label className="text-xs ml-4 mt-4 row-start-11 col-start-3 text-left">ZIP Code*</label>
-        <input className="text-xs ml-4 mt-2 row-start-12 col-start-3 w-24 h-8"
+        <label className="text-xs ml-4 mt-2 row-start-11 col-start-3 text-left">ZIP Code*</label>
+        <input className="ml-4 mt-2 row-start-12 col-start-3 w-24 h-8"
           onChange={(e) => setCardZip(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-zip"  required />
       </div>
       <div className=" w-1/3 mx-20 my-8 justify-start self-start border-2 rounded-lg" >
@@ -85,19 +85,19 @@ const FlightSummary = () => {
         />
         <label className="text-xs text-left my-2 row-start-3 col-start-3">Middle Name</label>
         <input className="text-xs row-start-4 col-start-3 w-24 h-8"
-          onChange={(e) => setMiddlename(e.target.value)} style={{"borderWidth": 2}} type="text" id="middle-name" size="32"
+          onChange={(e) => setMiddlename(e.target.value)} style={{"borderWidth": 2}} type="text" id="middle-name"
         />
         <label className="text-xs text-left my-2 row-start-3 col-start-4">Last Name*</label>
         <input className="text-xs row-start-4 col-start-4 col-span-2 w-48 h-8"
-          onChange={(e) => setLastname(e.target.value)} style={{"borderWidth": 2}} type="text" id="last-name" size="32" required
+          onChange={(e) => setLastname(e.target.value)} style={{"borderWidth": 2}} type="text" id="last-name" required
         />
         <label className="text-xs ml-4 text-left my-2 row-start-5 col-start-1">Country/Territory Code*</label>
         <input className="text-xs ml-4 row-start-6 col-start-1 w-60 h-8"
-          onChange={(e) => setCountry(e.target.value)} style={{"borderWidth": 2}} type="text" id="country-name" size="32" required
+          onChange={(e) => setCountry(e.target.value)} style={{"borderWidth": 2}} type="text" id="country-name" required
         />
         <label className="text-xs ml-4 text-left my-2 row-start-7 col-start-1">Phone Number*</label>
         <input className="text-xs ml-4 row-start-8 col-start-1 w-60 h-8"
-          onChange={(e) => setPhoneNumber(e.target.value)} style={{"borderWidth": 2}} type="text" id="phone-number" size="32" required
+          onChange={(e) => setPhoneNumber(e.target.value)} style={{"borderWidth": 2}} type="text" id="phone-number"  required
         />
         <span className="text-xs ml-4 text-left my-2 row-start-9 col-start-1">Gender*</span>
         <label className="text-xs ml-4 text-left row-start-10 col-start-1">
@@ -115,7 +115,7 @@ const FlightSummary = () => {
           </div>
       </div>
 
-      <button>Check</button>
+      <button className="w-24 text-white bg-black border-2 rounded-lg">Check</button>
     </div>
   );
 };
