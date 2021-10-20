@@ -30,21 +30,23 @@
 }
 
 .search-body h1 {
-  font-size: 4vmin;
+  font-size: 4vh;
   font-weight: bold;
 }
 
 .search-body h2 {
-  font-size: 2.5vmin;
+  font-size: 2.5vh;
   text-transform: uppercase;
 }
 
 .search-body h3 {
-  font-size: 1.7vmin;
+  font-size: 1.7vh;
   text-transform: uppercase;
   font-weight: bold;
 }
 
 .search-body button {
-  font-size: 1.8vmin;
+  line-height: 1;
+  /* display: inline-block;
+  vertical-align: top; */
 }
