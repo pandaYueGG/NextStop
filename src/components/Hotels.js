@@ -346,9 +346,38 @@ const Hotels = () => {
       }
     ]
   }
+  const [hotels, setHotels] = useState(data.hotels);
+  const handleChange = (e) => {
+    setHotels(() => data.hotels.filter((hotel) => hotel.name.includes(e.target.value)));
+  }
+
   return (
     <div>
-      {data.hotels.map(hotel => (
+      <h3
+        style={{
+                fontSize: 24,
+                fontWeight: 'bold',
+                marginTop: 10,
+        }}
+      >
+        Hotels in San Francisco during your stay...
+      </h3>
+      <input
+            style={{
+                borderWidth: 1,
+                borderColor: 'black',
+                borderStyle: 'solid',
+                marginTop: 15,
+                marginBottom: 10,
+                width: 400,
+                backgroundColor: 'whitesmoke'
+            }}
+                placeholder=' Search for events'
+                onChange={(e) => {
+                    handleChange(e)
+                }}
+            />
+      {hotels.map(hotel => (
         <Box>
           <Img
             src={hotel.image}
