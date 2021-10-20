@@ -48,3 +48,11 @@
 .search-body button {
   line-height: 1;
 }
+
+.nice-dates-popover {
+  box-shadow: none;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  max-width: 300px;
+  transition: none;
+}
