@@ -1,6 +1,11 @@
 // Create a config.js file in the same directory as this file.
-// Make sure to include your api token in the TOKEN constant
+// Make sure to include your api token(s) in their respective constant
 
-const TOKEN = '<ENTER YOUR API TOKEN HERE>';
-
-module.exports = TOKEN;
+module.exports = {
+    //https://developer.ticketmaster.com/products-and-docs/apis/getting-started/
+    TICKETMASTER_API_KEY:'<ENTER YOUR API TOKEN HERE>',
+    // https://cloud.google.com/apis
+    GOOGLE_GEOCODING_KEY: '<ENTER YOUR API TOKEN HERE>',
+    // https://rapidapi.com/tipsters/api/hotels-com-provider/
+    RAPID_API_KEY: '<ENTER YOUR API TOKEN HERE>',
+}

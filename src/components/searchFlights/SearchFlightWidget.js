@@ -5,7 +5,7 @@ import FlightSummary from './FlightSummary';
 
 const SearchFlightWidget = () => {
   const [showList, setShowList] = useState(true)
-  const handleSelectClick = () => {
+  const handleSelectClick = (e) => {
     setShowList(false)
   }
 
@@ -22,7 +22,7 @@ const SearchFlightWidget = () => {
     )
   } else {
     return (
-      <div><FlightSummary /></div>
+      <div className="w-1/2"><FlightSummary /></div>
     )
   }
 };
