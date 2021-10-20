@@ -52,7 +52,7 @@
 .nice-dates-popover {
   box-shadow: none;
   border: 1px solid #ddd;
-  border-radius: 2px;
+  border-radius: 10px;
   max-width: 300px;
   transition: none;
 }
