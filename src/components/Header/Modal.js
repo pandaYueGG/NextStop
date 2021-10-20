@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import {ModalBackground, ModalContainer, TitleCloseBtn, TitleCloseBtnButton, ModalContainerBody } from './Styled/Modal.js';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 function Modal({ closeModal}) {
-    let history = useHistory();
+    // let history = useHistory();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -18,9 +18,14 @@ function Modal({ closeModal}) {
           password: password,
         }).then((res) => {
             console.log(res);
-            history.push('/profile');
-        })
+            alert('successful logged in')
+            // history.push('/profile');
+        });
     };
+
+    useEffect(() => {
+
+    }, [])
 
     return (
         <>

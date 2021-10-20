@@ -1,5 +1,5 @@
 const db = require('../db/index.js');
-
+// const session = require("express-session");
 const bcrypt = require('bcrypt');
 const saltRounds = 10
 
@@ -41,6 +41,8 @@ module.exports = {
         if (result.length > 0) {
           bcrypt.compare(password, result[0].password, (error, response) => {
             if (response) {
+              req.session.user = result;
+              console.log(req.session.user);
               res.send(result)
             } else {
               res.send({ message: "Wrong username/password combination!" });
