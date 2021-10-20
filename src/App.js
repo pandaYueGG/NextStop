@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/header.js';
@@ -7,9 +7,11 @@ import Registration from './components/Registration/registration.js';
 import HotelPage from './components/Homepage/Hotels/HotelPage.js';
 import EventsCheckout from './components/EventsCheckout/EventsCheckout';
 import Hotels from './components/Hotels.js';
+import SearchFlightWidget from './components/searchFlights/SearchFlightWidget';
 
 
 function App() {
+
   return (
     <Router>
       <div className="App">
@@ -30,6 +32,9 @@ function App() {
             </Route>
             <Route exact path="/hotels">
               <Hotels />
+            </Route>
+            <Route exact path="/searchFlight">
+              <SearchFlightWidget />
             </Route>
           </Switch>
         </div>
