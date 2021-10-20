@@ -24,6 +24,7 @@ function Modal({ closeModal}) {
             } else {
                 localStorage.setItem("token", res.data.token)
                 setLoginStatus(true);
+                // console.log(loginStatus)
                 // history.push('/profile');
             }
         });
@@ -35,6 +36,7 @@ function Modal({ closeModal}) {
                 "x-access-token": localStorage.getItem("token"),
             },
         }).then((res) => {
+            console.log(loginStatus)
             console.log(res);
         })
         .catch((err) => {
