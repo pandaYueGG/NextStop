@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import wharf from './wharf.png';
 
 function HotelPage() {
 
@@ -23,6 +24,7 @@ function HotelPage() {
             <h1 className="font-bold text-xl">900 N Point Street, San Francisco, CA, 94109</h1>
             <h1 className="font-bold text-xl">$719 per night</h1>
             <h1 className="font-bold text-xl">4.7 Star Rating</h1>
+            <img className="w-2/4" src={wharf}></img>
             </div>
         </div>
     )
