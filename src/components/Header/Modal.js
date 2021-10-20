@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import {ModalBackground, ModalContainer, TitleCloseBtn, TitleCloseBtnButton, ModalContainerBody } from './Styled/Modal.js';
-// import { useHistory } from 'react-router-dom';
 
 function Modal({ closeModal}) {
-    // let history = useHistory();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    // const [loginStatus, setLoginStatus] = useState('');
 
     Axios.defaults.withCredentials = true;
 
@@ -20,6 +20,11 @@ function Modal({ closeModal}) {
             console.log(res);
             alert('successful logged in')
             // history.push('/profile');
+            // if (res.data.message) {
+            //     setLoginStatus(res.data.message);
+            // } else {
+            //     setLoginStatus(res.data[0].username);
+            // }
         });
     };
 
