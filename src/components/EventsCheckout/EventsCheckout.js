@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Img, Box, Body } from '../ListCheckoutStyles';
 
 export default function EventsCheckout() {
-    const [events, setEvents] = useState(data);
+    const [events, setEvents] = useState(data.slice(0,20));
 
     const handleChange = (e) => {
         setEvents(() => data.filter((event) => event.name.includes(e.target.value)));
@@ -13,7 +13,7 @@ export default function EventsCheckout() {
         <h3
             style={{
                 fontSize: 24,
-                fontStyle: 'bold'
+                fontStyle: 'bold',
             }}
         >Events in San Francisco during your stay...</h3>
         <div>
@@ -25,22 +25,31 @@ export default function EventsCheckout() {
             />
             <div>
                 {events.map((event) => (
-                    <Box>
+                    <Box style={{
+                        gridTemplateColumns: '1fr 3fr'
+                    }}>
                             <Img
                                 alt='placeholder'
                                 src={event.image.url}
                                 style={{
                                     width: 100,
                                     height: 100,
+                                    margin: 10,
                                 }}
                             />
                             <Body>
-                                <h4>{event.name}</h4>
-                                <p>{event.date}, {event.time}</p>
-                                {event.priceMin === event.priceMax ? (
-                                    <p>Price: ${event.priceMax}</p>
-                                ) : (<p>Price: ${event.priceMin} - ${event.priceMax}</p>)}
+                                <div style={{
+                                    display: 'flex',
+                                    flexDirection: 'horizontal',
+                                    justifyContent: 'space-between'
+                                }}>
+                                    <p>{event.name}</p>
+                                    {event.priceMin === event.priceMax ? (
+                                        <p>Price: ${event.priceMax}</p>
+                                    ) : (<p>Price: ${event.priceMin} - ${event.priceMax}</p>)}
+                                </div>
                                 <p>{event.venue.name}</p>
+                                <p>{event.date}, {event.time}</p>
                                 <p>{event.classifications[0].segment.name}</p>
                             </Body>
                     </Box>
