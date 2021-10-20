@@ -6,6 +6,6 @@ USE NSDB;
 CREATE TABLE users (
     id INT NOT NULL AUTO_INCREMENT,
     username CHAR(30) NOT NULL,
-    password CHAR(50) NOT NULL,
+    password VARCHAR(500) NOT NULL,
     PRIMARY KEY (id)
 );

@@ -13,4 +13,6 @@ router.get('/events', (req, res) => { apiHelpers.getEvents(req, res) });
 
 router.post('/register', (req, res) => { users.addUser(req, res) });
 
+router.post('/login', (req, res) => { users.getUser(req, res) });
+
 module.exports = router;
