@@ -8,4 +8,6 @@ module.exports = {
     GOOGLE_GEOCODING_KEY: '<ENTER YOUR API TOKEN HERE>',
     // https://rapidapi.com/tipsters/api/hotels-com-provider/
     RAPID_API_KEY: '<ENTER YOUR API TOKEN HERE>',
+
+    X_RAPID_API_KEY: '<ENTER YOUR API TOKEN HERE>',
 }

@@ -9,25 +9,24 @@ import Registration from './components/Registration/registration';
 function App() {
 
   return (
-    // <Router>
-    //   <div className="App">
-    //     <Header />
-    //     <div className="content">
-    //       <Switch>
-    //         <Route exact path="/">
-    //           <Homepage />
-    //         </Route>
-    //         <Route exact path="/registration">
-    //           <Registration />
-    //         </Route>
-    //       </Switch>
-    //     </div>
-    //   </div>
-    // </Router>
-    <div className="w-3/4">
-      <SearchFlightWidget />
-    </div>
-
+    <Router>
+      <div className="App">
+        <Header />
+        <div className="content">
+          <Switch>
+            <Route exact path="/">
+              <Homepage />
+            </Route>
+            <Route exact path="/registration">
+              <Registration />
+            </Route>
+            <Route exact path="/searchFlight">
+              <SearchFlightWidget />
+            </Route>
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 

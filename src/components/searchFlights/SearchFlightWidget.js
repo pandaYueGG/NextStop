@@ -11,7 +11,7 @@ const SearchFlightWidget = () => {
 
   if (showList) {
     return (
-      <div>
+      <div className="filters">
         <div className="w-1/4 float-left justify-end">
           <Filters />
         </div>
@@ -22,9 +22,10 @@ const SearchFlightWidget = () => {
     )
   } else {
     return (
-      <div className="w-1/2"><FlightSummary /></div>
+      <div><FlightSummary /></div>
     )
   }
+
 };
 
 export default SearchFlightWidget;
