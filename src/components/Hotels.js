@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Img, Body, Box } from './ListCheckoutStyles.js';
 
 const Hotels = () => {
@@ -350,11 +350,23 @@ const Hotels = () => {
     <div>
       {data.hotels.map(hotel => (
         <Box>
-          <Img src={hotel.image} alt={hotel.name}/>
+          <Img
+            src={hotel.image}
+            alt={hotel.name}
+            style={{
+              margin: '1em',
+              marginLeft: '1.5em'
+            }}
+          />
           <Body>
-            <h4>{hotel.name}</h4>
+            <h4 style={{
+              fontSize: '1.2em',
+              fontWeight: 'bold'
+            }}>
+              {hotel.name}
+            </h4>
             <p>{hotel.address.streetAddress}, {hotel.address.city}, {hotel.address.zip}</p>
-            <p>Price: {hotel.pricePerNight}</p>
+            <p>Price/night: ${hotel.pricePerNight}</p>
             <p>{hotel.neighborhood}</p>
             <p>Rating: {hotel.starRating}</p>
           </Body>
