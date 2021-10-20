@@ -352,7 +352,8 @@ const Hotels = () => {
         <Box>
           <Img src={hotel.image} alt={hotel.name}/>
           <Body>
-            <span>{hotel.name}</span> <span> ${hotel.pricePerNight}</span>
+            <span>{hotel.name}</span>
+            <span> ${hotel.pricePerNight}</span>
             <br/>
             {hotel.address.streetAddress}
             <br/>
