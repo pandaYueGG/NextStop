@@ -1,0 +1,50 @@
+.banner {
+  position: relative;
+  background-image: url("../splash-image.png");
+  width: 100vw;
+  height: 80vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 100px;
+  background-position: center;
+  padding: 3vmin;
+  display: flex;
+  align-items: center;
+  padding-left: 5vw;
+}
+
+.search {
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  align-items: center;
+  padding: 2vw;
+  overflow: scroll;
+}
+
+.search-body {
+  max-height: 100%;
+  max-width: 100%;
+  text-align: left;
+}
+
+.search-body h1 {
+  font-size: 4vmin;
+  font-weight: bold;
+}
+
+.search-body h2 {
+  font-size: 2.5vmin;
+  text-transform: uppercase;
+}
+
+.search-body h3 {
+  font-size: 1.7vmin;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.search-body button {
+  font-size: 1.8vmin;
+}
