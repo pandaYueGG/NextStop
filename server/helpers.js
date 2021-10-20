@@ -8,7 +8,7 @@ module.exports = {
     const sort = req.query.sortMethod || 'date,asc';
     const size = req.query.size || 40;
 
-    axios.get(`https://app.ticketmaster.com/discovery/v2/events?apikey=${TOKENS.TICKETMASTER_API_KEY}&city=[${city}]&startDate=${date}&sort=${sort}&size=${size}`)
+    axios.get(`https://app.ticketmaster.com/discovery/v2/events?apikey=${TOKENS.TICKETMASTER_API_KEY}&city=[${city}]&startDate=${date}&radius=50&sort=${sort}&size=${size}`)
       .then((response) => {
         const events = response.data._embedded.events
         let output = {"events": []};
