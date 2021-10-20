@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Img, Box, Body } from '../ListCheckoutStyles';
 
 export default function EventsCheckout() {
     const [events, setEvents] = useState(data);
@@ -22,27 +23,29 @@ export default function EventsCheckout() {
                     handleChange(e)
                 }}
             />
-            <ul>
+            <div>
                 {events.map((event) => (
-                    <div>
-                        <h4>{event.name}</h4>
-                        <p>{event.date}, {event.time}</p>
-                        {event.priceMin === event.priceMax ? (
-                            <p>Price: ${event.priceMax}</p>
-                        ) : (<p>Price: ${event.priceMin} - ${event.priceMax}</p>)}
-                        <p>{event.venue.name}</p>
-                        <p>{event.classifications[0].segment.name}</p>
-                        <img
-                            alt='placeholder'
-                            src={event.image.url}
-                            style={{
-                                width: 100,
-                                height: 100,
-                            }}
-                        />
-                    </div>
+                    <Box>
+                            <Img
+                                alt='placeholder'
+                                src={event.image.url}
+                                style={{
+                                    width: 100,
+                                    height: 100,
+                                }}
+                            />
+                            <Body>
+                                <h4>{event.name}</h4>
+                                <p>{event.date}, {event.time}</p>
+                                {event.priceMin === event.priceMax ? (
+                                    <p>Price: ${event.priceMax}</p>
+                                ) : (<p>Price: ${event.priceMin} - ${event.priceMax}</p>)}
+                                <p>{event.venue.name}</p>
+                                <p>{event.classifications[0].segment.name}</p>
+                            </Body>
+                    </Box>
                 ))}
-            </ul>
+            </div>
         </div>
         </>
     )
