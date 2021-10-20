@@ -5,6 +5,7 @@ import Header from './components/Header/header.js';
 import Homepage from './components/Homepage/homepage.js';
 import Registration from './components/Registration/registration.js';
 import EventsCheckout from './components/EventsCheckout/EventsCheckout';
+import Hotels from './components/Hotels.js';
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
             </Route>
             <Route exact path="/events">
               <EventsCheckout />
+            </Route>
+            <Route exact path="/hotels">
+              <Hotels />
             </Route>
           </Switch>
         </div>
