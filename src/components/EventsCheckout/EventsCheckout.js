@@ -13,12 +13,22 @@ export default function EventsCheckout() {
         <h3
             style={{
                 fontSize: 24,
-                fontStyle: 'bold',
+                fontWeight: 'bold',
+                marginTop: 10,
             }}
         >Events in San Francisco during your stay...</h3>
         <div>
             <input
-                placeholder='Search for events'
+            style={{
+                borderWidth: 1,
+                borderColor: 'black',
+                borderStyle: 'solid',
+                marginTop: 15,
+                marginBottom: 10,
+                width: 400,
+                backgroundColor: 'whitesmoke'
+            }}
+                placeholder=' Search for events'
                 onChange={(e) => {
                     handleChange(e)
                 }}
@@ -26,7 +36,7 @@ export default function EventsCheckout() {
             <div>
                 {events.map((event) => (
                     <Box style={{
-                        gridTemplateColumns: '1fr 3fr'
+                        gridTemplateColumns: '20% 80%'
                     }}>
                             <Img
                                 alt='placeholder'
@@ -37,20 +47,41 @@ export default function EventsCheckout() {
                                     margin: 10,
                                 }}
                             />
-                            <Body>
+                            <Body
+                                style={{
+                                    textAlign: 'left',
+                                    margin: '0 20px',
+                                }}
+                            >
                                 <div style={{
                                     display: 'flex',
                                     flexDirection: 'horizontal',
-                                    justifyContent: 'space-between'
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    textAlign: 'left',
+                                    margin: '5 0'
                                 }}>
-                                    <p>{event.name}</p>
+                                    <p
+                                        style={{
+                                            fontSize: 20,
+                                            fontWeight: 'bold',
+                                            marginRight: 0,
+                                        }}
+                                    >{event.name}</p>
                                     {event.priceMin === event.priceMax ? (
-                                        <p>Price: ${event.priceMax}</p>
-                                    ) : (<p>Price: ${event.priceMin} - ${event.priceMax}</p>)}
+                                        <p
+                                            style={{ color: 'darkgreen'}}
+                                        >${event.priceMax}</p>
+                                    ) : (<p style={{ color: 'darkgreen'}}>${event.priceMin} - ${event.priceMax}</p>)}
                                 </div>
-                                <p>{event.venue.name}</p>
-                                <p>{event.date}, {event.time}</p>
-                                <p>{event.classifications[0].segment.name}</p>
+                                <p style={{fontSize: 18, margin: '5 0'}}>{event.venue.name}</p>
+                                <p
+                                    style={{
+                                        fontStyle: 'italic',
+                                        margin: '5 0'
+                                    }}
+                                >{event.time}, {event.date}</p>
+                                <p style={{margin: '5 0'}}>{event.classifications[0].segment.name}</p>
                             </Body>
                     </Box>
                 ))}
