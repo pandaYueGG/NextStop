@@ -19,14 +19,7 @@ export const Body = styled.li
   `
     font-size: 1em;
     text-align: center;
-<<<<<<< HEAD
-<<<<<<< HEAD
     margin-right: 1em;
-=======
->>>>>>> f59a010 (pulls)
-=======
-    margin-right: 1em;
->>>>>>> 91b3815 (Adjusted Hotel styling)
   `;
 
 export const Img = styled.img
