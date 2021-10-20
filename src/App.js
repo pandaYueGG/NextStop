@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/header.js';
 import Homepage from './components/Homepage/homepage.js';
 import Registration from './components/Registration/registration.js';
-
+import Profile from './components/Profile/profile.js';
 
 function App() {
   return (
@@ -18,6 +18,9 @@ function App() {
             </Route>
             <Route exact path="/registration">
               <Registration />
+            </Route>
+            <Route exact path="/profile">
+              <Profile/>
             </Route>
           </Switch>
         </div>

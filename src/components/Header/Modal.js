@@ -11,7 +11,7 @@ function Modal({ closeModal}) {
                     </TitleCloseBtn>
                     <ModalContainerBody>
                         <div className="grid grid-rows-3 grid-flow">
-                            <div>
+                            <div className="text-4xl font-bold">
                                 Login
                             </div>
                             <div className="my-2">
@@ -21,7 +21,7 @@ function Modal({ closeModal}) {
                                 <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Password..." />
                             </div>
                             <div className="my-2">
-                                <button className="bg-black rounded-md p-2 inline-flex items-center justify-center text-white">Login </button>
+                                <button className="bg-black rounded-md py-2 px-32 inline-flex items-center justify-center text-white">Login </button>
                             </div>
                         </div>
                     </ModalContainerBody>
