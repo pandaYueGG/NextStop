@@ -44,7 +44,7 @@ const Search = () => {
             <h3>Returning</h3>
             <DatePicker date={departureDate} onDateChange={setDepartureDate} locale={enGB}>
               {({ inputProps, focused }) => (
-                <input 
+                <input
                   className={'input' + (focused ? ' -focused' : '') + 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}
                   {...inputProps}
                 />
@@ -52,7 +52,7 @@ const Search = () => {
             </DatePicker>
             <DatePicker date={arrivalDate} onDateChange={setArrivalDate} locale={enGB}>
               {({ inputProps, focused }) => (
-                <input 
+                <input
                   className={'input' + (focused ? ' -focused' : '') + 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'}
                   {...inputProps}
                 />
@@ -65,8 +65,8 @@ const Search = () => {
           </div>
           <div className="flex flex-row my-4">
               <button className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Flights</button>
-              <button className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Hotels</button>
-              <button className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Events</button>
+              <a href='/hotels' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Hotels</a>
+              <a href='/events' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Events</a>
           </div>
         </div>
       </div>
