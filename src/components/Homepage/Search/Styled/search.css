@@ -30,7 +30,7 @@
 }
 
 .search-body h1 {
-  font-size: 4vh;
+  font-size: 3.6vh;
   font-weight: bold;
 }
 
@@ -47,6 +47,4 @@
 
 .search-body button {
   line-height: 1;
-  /* display: inline-block;
-  vertical-align: top; */
 }
