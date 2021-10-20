@@ -4,6 +4,7 @@ import { DatePicker } from 'react-nice-dates';
 import 'react-nice-dates/build/style.css';
 import './Styled/search.css';
 import { format } from 'date-fns';
+import { useHistory} from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
@@ -19,6 +20,8 @@ const Search = () => {
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' }
   ]
+
+  let history = useHistory();
 
   return (
     <div className="banner justify-center xl:justify-start">
@@ -64,7 +67,7 @@ const Search = () => {
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="" /> */}
           </div>
           <div className="flex flex-row my-4">
-              <button className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Flights</button>
+              <a href='/searchFlight' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Flights</a>
               <a href='/hotels' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Hotels</a>
               <a href='/events' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Events</a>
           </div>

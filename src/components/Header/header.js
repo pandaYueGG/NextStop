@@ -24,7 +24,7 @@ function header() {
                     </div>
 
                     <div className="flex items-center">
-                        <a href="#" className="py-5 hover:text-gray-500">Flights</a>
+                        <a href="/searchFlight" className="py-5 hover:text-gray-500">Flights</a>
                         <a href="/hotels"  className="py-5 px-5 hover:text-gray-500">Hotels</a>
                         <a href="/events" className="py-5 pr-5 hover:text-gray-500">Events</a>
                         <a href="#" className="py-5 pr-3 hover:text-gray-500" onClick={() => { setOpenModal(true); }}>Login</a>
