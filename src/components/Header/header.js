@@ -20,15 +20,15 @@ function header() {
                             <span className="font-bold tracking-wider"> NextStop</span>
                             </a>
                         </div>
-                        
+
                     </div>
-                    
+
                     <div className="flex items-center">
                         <a href="#" className="py-5 hover:text-gray-500">Flights</a>
-                        <a href="#" className="py-5 px-5 hover:text-gray-500">Hotels</a>
+                        <a href="/hotels" className="py-5 px-5 hover:text-gray-500">Hotels</a>
                         <a href="#" className="py-5 pr-3 hover:text-gray-500" onClick={() => { setOpenModal(true); }}>Login</a>
                         <button className="py-2 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5" onClick={() => {history.push("/registration")}}>Signup</button>
-                        
+
                         {openModal && <Modal closeModal={setOpenModal} />}
                     </div>
                 </div>
