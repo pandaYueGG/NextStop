@@ -2,12 +2,11 @@ const express = require('express');
 // const path = require('path');
 const router = require('./routes.js');
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
 
 const PORT = 3001;
 const app = express();
-
-const cookieParser = require("cookie-parser");
-const session = require("express-session");
 
 app.use(express.json());
 app.use(

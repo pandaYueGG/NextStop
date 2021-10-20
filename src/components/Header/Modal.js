@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import {ModalBackground, ModalContainer, TitleCloseBtn, TitleCloseBtnButton, ModalContainerBody } from './Styled/Modal.js';
+import { useHistory } from 'react-router-dom';
 
 function Modal({ closeModal}) {
+    let history = useHistory();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    // const [loginStatus, setLoginStatus] = useState('');
+    const [loginStatus, setLoginStatus] = useState(false);
 
     Axios.defaults.withCredentials = true;
 
@@ -17,20 +19,39 @@ function Modal({ closeModal}) {
           username: username,
           password: password,
         }).then((res) => {
-            console.log(res);
-            alert('successful logged in')
-            // history.push('/profile');
-            // if (res.data.message) {
-            //     setLoginStatus(res.data.message);
-            // } else {
-            //     setLoginStatus(res.data[0].username);
-            // }
+            if (!res.data.auth) {
+                setLoginStatus(false);
+            } else {
+                localStorage.setItem("token", res.data.token)
+                setLoginStatus(true);
+                // history.push('/profile');
+            }
         });
     };
 
-    useEffect(() => {
-        
-    }, [])
+    const userAuthenticated = () => {
+        Axios.get("http://localhost:3001/api/isUserAuth", {
+            headers: {
+                "x-access-token": localStorage.getItem("token"),
+            },
+        }).then((res) => {
+            console.log(res);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
+    // useEffect(() => {
+    //     Axios.get("http://localhost:3001/api/login").then((res) => {
+    //         if ( res.data.loggedIn === true) {
+    //             setLoginStatus(res.data.user[0].username);
+    //         }
+
+    //     })
+    // }, [])
+
+
 
     return (
         <>
@@ -40,7 +61,7 @@ function Modal({ closeModal}) {
                         <TitleCloseBtnButton onClick={() => closeModal(false)}> X </TitleCloseBtnButton>
                     </TitleCloseBtn>
                     <ModalContainerBody>
-                        <div className="grid grid-rows-3 grid-flow">
+                        <div className="grid grid-rows-3 grid-flow mx-20">
                             <div className="text-4xl font-bold">
                                 Login
                             </div>
@@ -60,11 +81,21 @@ function Modal({ closeModal}) {
                             </div>
                             <div className="my-2">
                                 <button onClick={login} className="bg-black rounded-md py-2 px-32 inline-flex items-center justify-center text-white">Login </button>
+                               
                             </div>
+                            <div className="my-2">
+                                {loginStatus && (
+                                    <button onClick={userAuthenticated} className="bg-blue-500 rounded-md py-2 px-32 inline-flex items-center justify-center text-white"> Check if Authenticated </button>
+                                )}
+                            </div>
+                            
                         </div>
+                        
                     </ModalContainerBody>
                 </ModalContainer>
+                
             </ModalBackground>
+            
         </>
     );
 };

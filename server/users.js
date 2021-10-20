@@ -2,6 +2,7 @@ const db = require('../db/index.js');
 // const session = require("express-session");
 const bcrypt = require('bcrypt');
 const saltRounds = 10
+const jwt = require('jsonwebtoken');
 
 module.exports = {
   addUser: (req, res) => {
@@ -41,17 +42,32 @@ module.exports = {
         if (result.length > 0) {
           bcrypt.compare(password, result[0].password, (error, response) => {
             if (response) {
+              const id = result[0].id;
+              const token = jwt.sign({id}, "jwtSecret", {
+                expiresIn: 300,
+              })
+
               req.session.user = result;
-              console.log(req.session.user);
-              res.send(result)
+              
+              res.json({auth:true, token: token, result: result});
             } else {
-              res.send({ message: "Wrong username/password combination!" });
+              res.json({ auth: false, message: "Wrong username/password combination" });
             }
           })
         } else {
-          res.send({ message: "User doesn't exist" });
+          res.json({ auth: false, message: "User doesn't exist" });
         }
       }
     )
+  },
+  getLogin: (req, res) => {
+    if (req.session.user) {
+      res.send({ loggedIn: true, user: req.session.user });
+    } else {
+      res.send({ loggedIn: false });
+    }
+  },
+  isUserAuth: (req, res) => {
+    res.send("The user has been authenticated!");
   }
 }
