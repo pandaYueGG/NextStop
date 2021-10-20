@@ -24,6 +24,7 @@ function App() {
             </Route>
             <Route exact path="/hotelpage">
               <HotelPage />
+            </Route>
             <Route exact path="/events">
               <EventsCheckout />
             </Route>

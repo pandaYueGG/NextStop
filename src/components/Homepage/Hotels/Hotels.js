@@ -110,7 +110,6 @@ function Hotels() {
         </div>
 
       </div>
-      <HotelPage />
     </>
   )
 }
