@@ -19,7 +19,6 @@ export const Body = styled.li
   `
     font-size: 1em;
     text-align: center;
-    justify-content: space-between;
   `;
 
 export const Img = styled.img
