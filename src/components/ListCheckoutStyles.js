@@ -19,6 +19,7 @@ export const Body = styled.li
   `
     font-size: 1em;
     text-align: center;
+    margin-right: 1em;
   `;
 
 export const Img = styled.img
