@@ -19,7 +19,10 @@ export const Body = styled.li
   `
     font-size: 1em;
     text-align: center;
+<<<<<<< HEAD
     margin-right: 1em;
+=======
+>>>>>>> d101f264c70fb0830dbfbbfb1fc8ed15d3150cf4
   `;
 
 export const Img = styled.img
