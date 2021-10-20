@@ -29,7 +29,7 @@ function Modal({ closeModal}) {
     };
 
     useEffect(() => {
-
+        
     }, [])
 
     return (
