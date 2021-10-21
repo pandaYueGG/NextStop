@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DatePicker from 'react-date-picker';
 
 const FlightItem = ( {flight, addFlight} ) => {
 

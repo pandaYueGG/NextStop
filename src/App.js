@@ -8,6 +8,7 @@ import EventsCheckout from './components/EventsCheckout/EventsCheckout';
 import Hotels from './components/Hotels.js';
 import SearchFlightWidget from './components/searchFlights/SearchFlightWidget';
 import Checkout from './components/Checkout';
+import Payment from './components/Payment';
 
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
     console.log('this is flight obj: ', flight);
     setSelectedFlight(flight)
   }
+
+
 
   return (
     <Router>
@@ -42,6 +45,9 @@ function App() {
             </Route>
             <Route exact path="/checkout">
               <Checkout flight={selectedFlight}/>
+            </Route>
+            <Route exact path="/payment">
+              <Payment />
             </Route>
           </Switch>
         </div>

@@ -17,24 +17,6 @@ const Button = styled.button`
   background-color: #EDEDED;
   border-radius: 8px;
   margin-bottom: 15px;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    background-color: #0381ff33;
-    transform-origin: bottom;
-    transform: scale(0);
-    overflow-x: hidden;
-    transition: transform .4s .4s, width .2s cubic-bezier(.7,.06,.19,1.01);
-  }
-
-  &:hover::before {
-    width: 100%;
-    transform: scale(1);;
-  }
 `;
 
 const SearchFlightWidget = ( {addFlight} ) => {
