@@ -14,12 +14,12 @@ import {LoginContext} from './Context.js';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
-  
+
   return (
     <Router>
       <div className="App">
         <LoginContext.Provider value={{isAuth, setIsAuth}}>
-          <Header />
+          <Header isAuth={isAuth}/>
           <div className="content">
             <Switch>
               <Route exact path="/">
@@ -28,9 +28,6 @@ function App() {
               <Route exact path="/registration">
                 <Registration />
               </Route>
-              {/* <Route exact path="/profile">
-                <Profile/>
-              </Route> */}
               <ProtectedRoute exact path="/profile" component={Profile} isAuth={isAuth} />
               <Route exact path="/events">
                 <EventsCheckout />
