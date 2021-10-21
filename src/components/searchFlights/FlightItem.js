@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const FlightItem = ( {flight, addFlight} ) => {
+
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleClick = (flight) => {
+    setIsSelected(isSelected => !isSelected);
+    if (isSelected) {
+      addFlight(null);
+    } else {
+      addFlight(flight);
+    }
+  }
 
   return (
     <div>
@@ -23,7 +34,8 @@ const FlightItem = ( {flight, addFlight} ) => {
           <span>{flight.type}</span>
         </div>
         <div className="btn m-4">
-          <button onClick={() => addFlight(flight)} className="my-4 bg-blue-200 rounded-full w-16 h-8">Select</button>
+          {isSelected ? <button onClick={() => handleClick()} className="my-4 bg-blue-200 border-2 rounded-full w-20 h-8">Selected</button>
+           : <button onClick={() => handleClick(flight)} className="my-4 bg-white border-2 rounded-full w-20 h-8">Select</button>}
         </div>
       </div>
     </div>
