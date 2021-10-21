@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/header.js';
 import Homepage from './components/Homepage/homepage.js';
 import Registration from './components/Registration/registration.js';
+import HotelPage from './components/Homepage/Hotels/HotelPage.js';
 import EventsCheckout from './components/EventsCheckout/EventsCheckout';
 import Hotels from './components/Hotels.js';
 import SearchFlightWidget from './components/searchFlights/SearchFlightWidget';
@@ -23,6 +24,9 @@ function App() {
             </Route>
             <Route exact path="/registration">
               <Registration />
+            </Route>
+            <Route exact path="/hotelpage">
+              <HotelPage />
             </Route>
             <Route exact path="/events">
               <EventsCheckout />
