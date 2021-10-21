@@ -1,24 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import { enGB } from 'date-fns/locale';
 import { DatePicker } from 'react-nice-dates';
 import 'react-nice-dates/build/style.css';
 import './Styled/search.css';
-import { format } from 'date-fns';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import Select from 'react-select';
+
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' }
+]
 
 const Search = () => {
   const [arrivalDate, setArrivalDate] = useState('');
   const [departureDate, setDepartureDate] = useState(new Date());
-  const [destination, setDestination] = useState(new Date());
+  const [origin, setOrigin] = useState('');
+  const [destination, setDestination] = useState('');
 
-  const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-  ]
+  const handleOrigin = (e) => {
+    setOrigin(e.target.value);
+  }
+
+  const handleDestination = (e) => {
+    setDestination(e.target.value);
+  }
 
   return (
     <div className="banner justify-center xl:justify-start">
@@ -31,13 +38,13 @@ const Search = () => {
             <span class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
               <FontAwesomeIcon icon={faMapMarkerAlt} />
             </span>
-            <input type="text" placeholder="Leaving from" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full pl-10"/>
+            <input type="text" placeholder="Leaving from" value={origin} onChange={handleOrigin} class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full pl-10"/>
           </div>
           <div class="relative flex w-full flex-wrap items-stretch mb-3">
             <span class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
               <FontAwesomeIcon icon={faMapMarkerAlt} />
             </span>
-            <input type="text" placeholder="Going to" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full pl-10"/>
+            <input type="text" placeholder="Going to" value={destination} onChange={handleDestination} class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full pl-10"/>
           </div>
           <div className="my-2 grid grid-cols-2 grid-template-rows-2 gap-x-2">
             <h3>Departing</h3>
