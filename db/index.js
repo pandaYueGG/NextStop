@@ -4,8 +4,9 @@ var dbConnection;
 
 dbConnection = mysql.createConnection({
   user: 'root',
-  password: 'password',
-  database: 'chat'
+  host: 'localhost',
+  password: '',
+  database: 'NSDB'
 });
 
 dbConnection.connect((err) => {

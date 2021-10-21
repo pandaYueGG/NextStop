@@ -4,13 +4,13 @@ import Modal from './Modal.js';
 import { useHistory } from 'react-router-dom';
 import { LoginContext } from '../../Context.js';
 
-function header() {
+function homepageheader() {
     const [openModal, setOpenModal] = useState(false);
     const {isAuth, setIsAuth} = useContext(LoginContext);
     let history = useHistory();
 
     return (
-        <nav className="bg-white shadow">
+        <nav className="bg-transparent shadow">
             <div className="max-w-full mx-auto">
                 <div className="flex justify-between">
                     <div className="flex">
@@ -31,7 +31,7 @@ function header() {
                         <a href="/events" className="py-5 pr-5 hover:text-gray-500">Events</a>
                         {isAuth 
                         ?
-                        <button className="py-2 px-3 text-white bg-green-900 hover:bg-green-600 rounded mr-5" onClick={() => {setIsAuth(false)}}>Logout</button>
+                        <button className="py-2 px-3 text-white bg-blue-900 hover:bg-red-600 rounded mr-5" onClick={() => {setIsAuth(false)}}>Logout</button>
                         :
                         <a href="#" className="py-5 pr-3 hover:text-gray-500" onClick={() => { setOpenModal(true); }}>Login</a>
                         }
@@ -55,4 +55,4 @@ function header() {
     )
 }
 
-export default header;
+export default homepageheader;
