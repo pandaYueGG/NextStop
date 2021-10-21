@@ -1,26 +1,37 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import { PaperAirplaneIcon } from '@heroicons/react/outline';
+import { HomeIcon } from '@heroicons/react/outline';
+import { CalendarIcon } from '@heroicons/react/outline';
 
 function profile() {
     return (
         <>
-            
-            <div className="grid grid-cols-3">
-                {/* <div className="...">1</div>
-                <div className="col-span-2">2</div> */}
-                <div className="h-screen grid grid-rows-4 grid-flow-col border-r w-60">
-                    <div className="h-10">Upcoming flights</div>
-                    <div>Upcoming events</div>
-                    <div>hotel bookings</div>
-                    <div>edit profile</div>
-                </div>
-                <div className="col-span-2">
-                    <div class="h-screen container mx-auto border-solid border-4 border-light-blue-500 m-20">
-                        <h1>Authenticated user login page</h1>
-                        <h1>Upcoming flights goes here</h1>
+            <div className="flex min-h-screen">
+                <div className="w-64 bg-gray-50 border-r border-gray-200">
+                    <div className="mt-10 flex items-center ml-5">
+                        <PaperAirplaneIcon className="w-6 h-6 mr-2" />
+                        <h3 className="mr-6 text-xs text-gray-600 uppercase tracking-widest">
+                        
+                            Upcoming Flights
+                        </h3>
+                    </div>
+                    <div className="mt-10 flex items-center ml-5">
+                        <HomeIcon className="w-6 h-6 mr-2"/>
+                        <h3 className="mr-6 text-xs text-gray-600 uppercase tracking-widest">
+                            Saved Hotels
+                        </h3>
+                    </div>
+                    <div className="mt-10 flex items-center ml-5">
+                        <CalendarIcon className="w-6 h-6 mr-2"/>
+                        <h3 className="mr-6 text-xs text-gray-600 uppercase tracking-widest">
+                            Saved Events
+                        </h3>
                     </div>
                 </div>
-
+                <div className="flex-1">
+                    <main> Main Content</main>
+                </div>
             </div>
         </>
     )
