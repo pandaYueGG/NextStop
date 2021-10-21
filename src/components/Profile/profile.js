@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {withRouter} from 'react-router-dom';
 
 function profile() {
     return (
@@ -14,4 +15,4 @@ function profile() {
     )
 }
 
-export default profile
+export default withRouter(profile);

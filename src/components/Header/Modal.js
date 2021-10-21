@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Axios from 'axios';
 import {ModalBackground, ModalContainer, TitleCloseBtn, TitleCloseBtnButton, ModalContainerBody } from './Styled/Modal.js';
 import { useHistory } from 'react-router-dom';
+import { LoginContext } from '../../Context.js';
 
 function Modal({ closeModal}) {
+    
     let history = useHistory();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const [loginStatus, setLoginStatus] = useState(false);
+    const {isAuth, setIsAuth} = useContext(LoginContext);
 
     Axios.defaults.withCredentials = true;
-
+    
     const login = () => {
         
         Axios.post("http://localhost:3001/api/login", {
@@ -20,12 +22,12 @@ function Modal({ closeModal}) {
           password: password,
         }).then((res) => {
             if (!res.data.auth) {
-                setLoginStatus(false);
+                setIsAuth(false);
+                alert('Wrong username and password combination');
             } else {
                 localStorage.setItem("token", res.data.token)
-                setLoginStatus(true);
-                // console.log(loginStatus)
-                // history.push('/profile');
+                setIsAuth(true);
+                history.push('/profile');
             }
         });
     };
@@ -36,24 +38,12 @@ function Modal({ closeModal}) {
                 "x-access-token": localStorage.getItem("token"),
             },
         }).then((res) => {
-            console.log(loginStatus)
             console.log(res);
         })
         .catch((err) => {
             console.log(err);
         })
     }
-
-    // useEffect(() => {
-    //     Axios.get("http://localhost:3001/api/login").then((res) => {
-    //         if ( res.data.loggedIn === true) {
-    //             setLoginStatus(res.data.user[0].username);
-    //         }
-
-    //     })
-    // }, [])
-
-
 
     return (
         <>
@@ -85,11 +75,11 @@ function Modal({ closeModal}) {
                                 <button onClick={login} className="bg-black rounded-md py-2 px-32 inline-flex items-center justify-center text-white">Login </button>
                                
                             </div>
-                            <div className="my-2">
-                                {loginStatus && (
+                            {/* <div className="my-2">
+                                {isAuth && (
                                     <button onClick={userAuthenticated} className="bg-blue-500 rounded-md py-2 px-32 inline-flex items-center justify-center text-white"> Check if Authenticated </button>
                                 )}
-                            </div>
+                            </div> */}
                             
                         </div>
                         
