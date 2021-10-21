@@ -7,7 +7,7 @@ import Registration from './components/Registration/registration.js';
 import EventsCheckout from './components/EventsCheckout/EventsCheckout';
 import Hotels from './components/Hotels.js';
 import SearchFlightWidget from './components/searchFlights/SearchFlightWidget';
-// import Flights from './components/searchFlights/FlightList'
+import FlightSummary from './components/searchFlights/FlightSummary'
 
 
 function App() {
@@ -32,6 +32,9 @@ function App() {
             </Route>
             <Route exact path="/searchFlight">
               <SearchFlightWidget />
+            </Route>
+            <Route exact path="/checkout">
+              <FlightSummary />
             </Route>
           </Switch>
         </div>
