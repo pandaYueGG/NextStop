@@ -6,7 +6,7 @@ module.exports = {
     const city = req.query.city || 'San Francisco';
     const date = req.query.date || '2021-10-24';
     const sort = req.query.sortMethod || 'date,asc';
-    const size = req.query.size || 20;
+    const size = req.query.size || 40;
 
     axios.get(`https://app.ticketmaster.com/discovery/v2/events?apikey=${TOKENS.TICKETMASTER_API_KEY}&city=[${city}]&startDate=${date}&radius=50&sort=${sort}&size=${size}`)
       .then((response) => {
@@ -190,6 +190,5 @@ module.exports = {
         }
         res.status(200).send(output);
       })
-
   },
 };

@@ -2,20 +2,30 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import cabin from './cabin.jpeg';
 import family from './family.jpeg';
+import { useHistory } from 'react-router-dom';
+import HotelPage from './HotelPage.js';
 
 function Hotels() {
-  const [showHotelModal, setShowHotelModal] = React.useState(false);
-  const [luxuryModalInfo, setLuxuryModalInfo] = React.useState([]);
+  const [showHotelModal, setShowHotelModal] = useState(false);
+  const [hotelModalInfo, setHotelModalInfo] = useState([]);
+  const [hotelInfo, setHotelInfo] = useState([]);
 
-  const getModalInfoHotels = (sortOrderQuery) => {
-    // add sortOrderQuery param to axios.get?
-    axios.get('http://localhost:3001/api/hotels/')
+  let renderHotelPage = useHistory();
+
+  const getModalInfoHotels = (sortOrderBudgetQuery) => {
+    axios.get('http://localhost:3001/api/hotels/', { params: { sort_order: sortOrderBudgetQuery}})
       .then((res) => {
-        // console.log('get request for hotels', res.data.hotels);
-        setLuxuryModalInfo(res.data.hotels);
-        // console.log('luxuryModalInfo', luxuryModalInfo)
+        setHotelModalInfo(res.data.hotels);
+        // console.log(res.data.hotels)
       })
   };
+
+  const getHotelInfo = (clickedHotel) => {
+    console.log('hotel info', clickedHotel)
+    // useEffect / setTimeout
+    setHotelInfo(clickedHotel);
+    console.log('hotel info state', hotelInfo);
+  }
 
   return (
     <>
@@ -24,50 +34,47 @@ function Hotels() {
           <div
             className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
-              {/*content*/}
+              {/* CONTENT */}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none overflow-auto h-96">
-                {/*header*/}
+                {/* HEADER */}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">
-                    Living
+                  <h3 className="text-3xl font-semibold leading-relaxed">
+                    Pick your stay
                   </h3>
+                  {/* MODAL EXIT BUTTON */}
                   <button
-                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-20 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={() => setShowHotelModal(false)}>
                     <span>
                       ×
                     </span>
                   </button>
                 </div>
-                {/*body*/}
-                {/* <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                    list of stays luxury getaways / budget friendly
-                  </p>
-                </div> */}
 
-                <div className="py-3 px-28 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5 ">
-                  {console.log(luxuryModalInfo)}
-                  {luxuryModalInfo.map((luxuryHotelInfo) => (
-                    <div className="rounded overflow-hidden" key={luxuryHotelInfo.id}>
-                      {/* {console.log(luxuryHotelInfo)} */}
+
+
+                {/* HOTEL GRID CONTAINER */}
+                <div className="py-3 px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5 ">
+                  {hotelModalInfo.map((hotelInfo) => (
+                    <div className="rounded overflow-hidden h-72" key={hotelInfo.id}>
+                    {/* HOTEL IMAGE */}
                       <img className="w-full h-3/4 rounded-lg shadow-inner cursor-pointer"
-                        src={cabin}
+                        src={hotelInfo.image}
                         alt="cabin"
-                        onClick={() => { }}>
+                        onClick={() => {renderHotelPage.push("/hotelpage"); getHotelInfo([hotelInfo]); console.log(hotelInfo)}}>
                       </img>
-
-                      <div className="px-1 py-1 flex-col" key={luxuryHotelInfo.id}>
-                        <h3 className="font-bold text-xs mb-0 text-left text-gray-500">{luxuryHotelInfo.neighborhood}</h3>
-                        <h3 className="font-bold text-xs mb-0 text-left">{luxuryHotelInfo.name}</h3>
-                          <h3 className="font-bold text-xs mb-0 float-left items-end">⭐ {luxuryHotelInfo.starRating}</h3>
-                          <h3 className="font-bold text-xs mb-0 float-right items-end">${luxuryHotelInfo.pricePerNight} / night</h3>
-
+                    {/* HOTEL INFORMATION */}
+                      <div className="px-1 py-1 flex-col" key={hotelInfo.id}>
+                        <h3 className="font-bold text-xs mb-0 text-left text-gray-500">{hotelInfo.neighborhood}</h3>
+                        <h3 className="font-bold text-xs mb-0 text-left">{hotelInfo.name}</h3>
+                          <h3 className="font-bold text-xs mb-0 float-left items-end">⭐ {hotelInfo.starRating}</h3>
+                          <h3 className="font-bold text-xs mb-0 float-right items-end">${hotelInfo.pricePerNight} / night</h3>
                       </div>
                     </div>
                    ))}
-
                 </div>
+
+
 
               </div>
             </div>
