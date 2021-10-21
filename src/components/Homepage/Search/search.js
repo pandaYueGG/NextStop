@@ -58,15 +58,11 @@ const Search = () => {
                 />
               )}
             </DatePicker>
-            {/* <DatePicker onChange={setDepartureDate} value={departureDate} />
-            <DatePicker onChange={setArrivalDate} value={arrivalDate} /> */}
-            {/* <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="" />
-            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="" /> */}
           </div>
           <div className="flex flex-row my-4">
-              <button className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Flights</button>
-              <button className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Hotels</button>
-              <button className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Events</button>
+              <button className="py-2 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Flights</button>
+              <button className="py-2 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Hotels</button>
+              <button className="py-2 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Events</button>
           </div>
         </div>
       </div>
