@@ -9,6 +9,10 @@ import Hotels from './components/Hotels.js';
 import SearchFlightWidget from './components/searchFlights/SearchFlightWidget';
 import FlightSummary from './components/searchFlights/FlightSummary'
 
+navigator.geolocation.getCurrentPosition(function(position) {
+  console.log("Latitude is: ", position.coords.latitude);
+  console.log("Longitude is: ", position.coords.longitude);
+});
 
 function App() {
 
