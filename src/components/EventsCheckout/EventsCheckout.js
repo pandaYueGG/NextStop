@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
 import { Img, Box, Body } from '../ListCheckoutStyles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleLeft, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function EventsCheckout() {
-    const [events, setEvents] = useState(data.slice(0,20));
+    let renderedAmt = 20;
+    const [events, setEvents] = useState(data.slice(0,renderedAmt));
 
     const handleChange = (e) => {
         setEvents(() => data.filter((event) => event.name.includes(e.target.value)));
+    }
+
+    const handleClick = (num) => {
+        setEvents(data.slice(0, num));
     }
 
     return (
@@ -17,27 +25,99 @@ export default function EventsCheckout() {
                 marginTop: 10,
             }}
         >Events in San Francisco during your stay...</h3>
-        <div>
-            <input
-            style={{
-                borderWidth: 1,
-                borderColor: 'black',
-                borderStyle: 'solid',
-                marginTop: 15,
-                marginBottom: 10,
-                width: 400,
-                backgroundColor: 'whitesmoke'
-            }}
-                placeholder=' Search for events'
-                onChange={(e) => {
-                    handleChange(e)
+        <div style={{alignItems: 'center'}}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'horizontal',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
                 }}
-            />
-            <div>
+            >
+                <a
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'horizontal',
+                        alignItems: 'center',
+                        borderRadius: '15px',
+                        borderColor: 'black',
+                        borderStyle: 'solid',
+                        borderWidth: 1,
+                        marginLeft: 40,
+                        cursor: 'pointer',
+                        backgroundColor: 'rgba(78, 205, 196, 0.3)',
+                    }}
+                    className={'hover:opacity-60'}
+                    href='/hotels'
+                >
+                    <FontAwesomeIcon
+                        icon={faArrowAltCircleLeft}
+                        className={'ml-2 mr-5'}
+                        style={{
+                            fontSize: 30,
+                            color:'#1A535C'
+                        }}
+                    />
+                    <p style={{fontSize: 18, fontWeight: 'bold', color: '#1A535C'}} className={'mr-3 py-1.5'}>Hotels</p>
+                </a>
+                <input
+                style={{
+                    borderWidth: 1,
+                    borderColor: 'black',
+                    borderStyle: 'solid',
+                    marginTop: 15,
+                    marginBottom: 10,
+                    paddingLeft: 10,
+                    width: 400,
+                    backgroundColor: 'whitesmoke'
+                }}
+                    placeholder='Search for events'
+                    onChange={(e) => {
+                        handleChange(e)
+                    }}
+                />
+                <a
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'horizontal',
+                        alignItems: 'center',
+                        borderRadius: '15px',
+                        borderColor: 'black',
+                        borderStyle: 'solid',
+                        borderWidth: 1,
+                        marginRight: 40,
+                        cursor: 'pointer',
+                        backgroundColor: 'rgba(78, 205, 196, 0.3)',
+                    }}
+                    className={'hover:opacity-60'}
+                    href='/checkout'
+                >
+                    <p style={{fontSize: 18, fontWeight: 'bold', color: '#1A535C'}} className={'ml-3 py-1.5'}>Checkout</p>
+                    <FontAwesomeIcon
+                        icon={faArrowAltCircleRight}
+                        className={'ml-5 mr-2'}
+                        style={{
+                            fontSize: 30,
+                            color: '#1A535C'
+                        }}
+                    />
+                </a>
+            </div>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'horizontal',
+                    flexWrap: 'wrap'
+                }}
+            >
                 {events.map((event) => (
-                    <Box style={{
-                        gridTemplateColumns: '20% 80%'
-                    }}>
+                    <Box
+                        style={{
+                            gridTemplateColumns: '20% 80%',
+                            borderRadius: '15px',
+                            backgroundColor: 'whitesmoke',
+                        }}
+                    >
                             <Img
                                 alt='placeholder'
                                 src={event.image.url}
@@ -57,7 +137,7 @@ export default function EventsCheckout() {
                                     display: 'flex',
                                     flexDirection: 'horizontal',
                                     justifyContent: 'space-between',
-                                    alignItems: 'center',
+                                    alignItems: 'start',
                                     textAlign: 'left',
                                     margin: '5 0'
                                 }}>
@@ -66,27 +146,51 @@ export default function EventsCheckout() {
                                             fontSize: 20,
                                             fontWeight: 'bold',
                                             marginRight: 0,
+                                            color: '#1A535C',
                                         }}
                                     >{event.name}</p>
                                     {event.priceMin === event.priceMax ? (
                                         <p
-                                            style={{ color: 'darkgreen'}}
+                                            style={{ color: 'darkgreen', width: 80, textAlign: 'right', fontWeight: 'bold'}}
                                         >${event.priceMax}</p>
-                                    ) : (<p style={{ color: 'darkgreen'}}>${event.priceMin} - ${event.priceMax}</p>)}
+                                    ) : (<p style={{ color: 'darkgreen', width: 80, textAlign: 'center', fontWeight: 'bold'}}>${event.priceMin} - ${event.priceMax}</p>)}
                                 </div>
-                                <p style={{fontSize: 18, margin: '5 0'}}>{event.venue.name}</p>
+                                <p style={{fontSize: 18, margin: '5 0', fontWeight: 'lighter'}}>{event.venue.name}</p>
                                 <p
                                     style={{
                                         fontStyle: 'italic',
-                                        margin: '5 0'
+                                        margin: '5 0',
+                                        fontWeight: 'lighter'
                                     }}
                                 >{event.time}, {event.date}</p>
-                                <p style={{margin: '5 0'}}>{event.classifications[0].segment.name}</p>
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'horizontal',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                        marginBottom: 5,
+                                    }}
+                                >
+                                    <p style={{margin: '5 0', fontWeight: 'bold'}}>{event.classifications[0].segment.name}</p>
+                                    <button className="h-6 w-8 py-0 pb-3 text-white bg-red-400 hover:bg-red-500 rounded"
+                                    style={{
+                                        textAlign: 'center',
+                                        alignItems: 'center',
+                                        fontWeight: 'bold',
+                                        justifyContent: 'center',
+                                    }}>+</button>
+                                </div>
                             </Body>
                     </Box>
                 ))}
             </div>
         </div>
+        <button
+            className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded my-10 mx-auto w-28"
+            onClick = { () => handleClick(events.length + 20) }
+        >
+            Show More</button>
         </>
     )
 }
