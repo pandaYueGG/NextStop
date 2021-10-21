@@ -25,6 +25,7 @@ function Modal({ closeModal}) {
                 setIsAuth(false);
                 alert('Wrong username and password combination');
             } else {
+                closeModal(false)
                 localStorage.setItem("token", res.data.token)
                 setIsAuth(true);
                 history.push('/profile');

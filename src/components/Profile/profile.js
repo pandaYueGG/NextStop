@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 function profile() {
     return (
         <>
-            <h1> Whats Poppin!</h1>
+            <h1> You're logged in!</h1>
             <div className="grid grid-cols-3 gap-4">
                 
                 <div className="px-5 h-screen grid grid-rows-4 grid-flow-col gap-4 border-r-2">
