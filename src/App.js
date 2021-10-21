@@ -7,9 +7,17 @@ import Registration from './components/Registration/registration.js';
 import EventsCheckout from './components/EventsCheckout/EventsCheckout';
 import Hotels from './components/Hotels.js';
 import SearchFlightWidget from './components/searchFlights/SearchFlightWidget';
+import Checkout from './components/Checkout';
 
 
 function App() {
+
+  const [selectedFlight, setSelectedFlight] = useState(null);
+
+  const addFlight = (flight) => {
+    console.log('this is flight obj: ', flight);
+    setSelectedFlight(flight)
+  }
 
   return (
     <Router>
@@ -30,7 +38,10 @@ function App() {
               <Hotels />
             </Route>
             <Route exact path="/searchFlight">
-              <SearchFlightWidget />
+              <SearchFlightWidget addFlight={addFlight}/>
+            </Route>
+            <Route exact path="/checkout">
+              <Checkout flight={selectedFlight}/>
             </Route>
           </Switch>
         </div>
