@@ -152,9 +152,9 @@ export default function EventsCheckout() {
                                     >{event.name}</p>
                                     {event.priceMin === event.priceMax ? (
                                         <p
-                                            style={{ color: 'darkgreen', width: 80, textAlign: 'right', fontWeight: 'bold'}}
+                                            style={{ color: 'darkgreen', width: 100, textAlign: 'right', fontWeight: 'bold'}}
                                         >${event.priceMax}</p>
-                                    ) : (<p style={{ color: 'darkgreen', width: 80, textAlign: 'center', fontWeight: 'bold'}}>${event.priceMin} - ${event.priceMax}</p>)}
+                                    ) : (<p style={{ color: 'darkgreen', width: 100, textAlign: 'right', fontWeight: 'bold'}}>${Math.round(event.priceMin)} - ${Math.round(event.priceMax)}</p>)}
                                 </div>
                                 <p style={{fontSize: 18, margin: '5 0', fontWeight: 'lighter'}}>{event.venue.name}</p>
                                 <p
