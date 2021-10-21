@@ -11,11 +11,23 @@ import SearchFlightWidget from './components/searchFlights/SearchFlightWidget';
 import Profile from './components/Profile/profile.js';
 import ProtectedRoute from './components/ProtectedRoutes/ProtectedRoutes.js';
 import {LoginContext} from './Context.js';
-import FlightSummary from './components/searchFlights/FlightSummary'
+import Checkout from './components/Checkout';
+import Payment from './components/Payment';
+import BackHome from './components/BackHome';
+
 
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
+
+  const [selectedFlight, setSelectedFlight] = useState(null);
+
+  const addFlight = (flight) => {
+    console.log('this is flight obj: ', flight);
+    setSelectedFlight(flight)
+  }
+
+
 
   return (
     <Router>
@@ -38,10 +50,19 @@ function App() {
                 <Hotels />
               </Route>
               <Route exact path="/searchFlight">
-                <SearchFlightWidget />
+                <SearchFlightWidget addFlight={addFlight} />
               </Route>
               <Route exact path="/checkout">
-                <FlightSummary />
+                <Checkout flight={selectedFlight}/>
+              </Route>
+              <Route exact path="/payment">
+                <Payment />
+              </Route>
+              <Route exact path="/">
+                <BackHome />
+              </Route>
+              <Route exact path="/paymentFinish">
+                <BackHome />
               </Route>
             </Switch>
           </div>
