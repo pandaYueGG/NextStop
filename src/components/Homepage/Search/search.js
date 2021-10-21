@@ -67,9 +67,9 @@ const Search = () => {
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="" /> */}
           </div>
           <div className="flex flex-row my-4">
-              <button onClick={() => {history.push("/searchFlight")}} className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Flights</button>
-              <button className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Hotels</button>
-              <button className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Events</button>
+              <a href='/searchFlight' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Flights</a>
+              <a href='/hotels' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Hotels</a>
+              <a href='/events' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Events</a>
           </div>
         </div>
       </div>

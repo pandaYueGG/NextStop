@@ -38,7 +38,7 @@ const SearchFlightWidget = ( {addFlight} ) => {
           </div>
         </div>
         <Button className="explore-stay-btn">Find A Nice Stays</Button>
-        <Button className="explore-event-btn">Explore Evens Nearby</Button>
+        <Button className="explore-event-btn">Explore Events Nearby</Button>
         <Button onClick={() => {history.push("/checkout")}} className="checkout-btn">I Want Checkout</Button>
       </div>
     )
