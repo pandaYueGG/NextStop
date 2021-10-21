@@ -6,12 +6,12 @@ const { X_RAPID_API_KEY } = require('./config.js');
 module.exports = {
 
   getAirport: (req, res) => {
-    const location = req.body.location || 'San Francisco';
+    const location = req.query.location || 'San Francisco';
 
     var options = {
       method: 'GET',
       url: 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/',
-      params: { query: location },
+      params: { body: location },
       headers: {
         'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
         'x-rapidapi-key': X_RAPID_API_KEY
@@ -35,10 +35,10 @@ module.exports = {
 
     today = yyyy + '-' + mm + '-' + dd;
 
-    const origin = req.body.origin || 'SFO'
-    const destination = req.body.destination || 'JFK'
-    const outboundDate = req.body.outboundDate || today
-    const inboundDate = req.body.inboundDate || ''
+    const origin = req.query.origin || 'SFO'
+    const destination = req.query.destination || 'JFK'
+    const outboundDate = req.query.outboundDate || today
+    const inboundDate = req.query.inboundDate || ''
 
     var options = {
       method: 'GET',
