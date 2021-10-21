@@ -4,12 +4,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/header.js';
 import Homepage from './components/Homepage/homepage.js';
 import Registration from './components/Registration/registration.js';
+import HotelPage from './components/Homepage/Hotels/HotelPage.js';
 import EventsCheckout from './components/EventsCheckout/EventsCheckout';
 import Hotels from './components/Hotels.js';
 import SearchFlightWidget from './components/searchFlights/SearchFlightWidget';
 import Profile from './components/Profile/profile.js';
 import ProtectedRoute from './components/ProtectedRoutes/ProtectedRoutes.js';
 import {LoginContext} from './Context.js';
+import FlightSummary from './components/searchFlights/FlightSummary'
 
 
 function App() {
@@ -37,6 +39,9 @@ function App() {
               </Route>
               <Route exact path="/searchFlight">
                 <SearchFlightWidget />
+              </Route>
+              <Route exact path="/checkout">
+                <FlightSummary />
               </Route>
             </Switch>
           </div>

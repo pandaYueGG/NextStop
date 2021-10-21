@@ -4,16 +4,22 @@ import {withRouter} from 'react-router-dom';
 function profile() {
     return (
         <>
-            <h1> You're logged in!</h1>
-            <div className="grid grid-cols-3 gap-4">
-                
-                <div className="px-5 h-screen grid grid-rows-4 grid-flow-col gap-4 border-r-2">
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
+            
+            <div className="grid grid-cols-3">
+                {/* <div className="...">1</div>
+                <div className="col-span-2">2</div> */}
+                <div className="h-screen grid grid-rows-4 grid-flow-col border-r">
+                    <div>Upcoming flights</div>
+                    <div>Upcoming events</div>
+                    <div>hotel bookings</div>
+                    <div>edit profile</div>
                 </div>
-                <div> Card Container goes here. </div>
+                <div className="col-span-2">
+                    <div class="h-screen container mx-auto border-solid border-4 border-light-blue-500 m-20">
+                        <h1>hi</h1>
+                    </div>
+                </div>
+
             </div>
         </>
     )
