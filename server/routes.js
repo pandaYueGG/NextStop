@@ -12,6 +12,8 @@ router.get('/flights', flights.getRoutes);
 
 router.get('/hotels', (req, res) => { apiHelpers.getHotels(req, res) });
 
+router.get('/getCity', (req, res) => { apiHelpers.getCity(req, res) });
+
 router.get('/hotelsWithLocation', (req, res) => { apiHelpers.getHotelsWithLocation(req, res) });
 
 router.get('/events', (req, res) => { apiHelpers.getEvents(req, res) });

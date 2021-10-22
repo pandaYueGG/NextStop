@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import cabin from './cabin.jpeg';
 import family from './family.jpeg';
 import { useHistory } from 'react-router-dom';
-import HotelPage from './HotelPage.js';
+import Fade from 'react-reveal/Fade';
+
+const HotelContext = React.createContext();
 
 function Hotels() {
   const [showHotelModal, setShowHotelModal] = useState(false);
@@ -16,13 +18,10 @@ function Hotels() {
     axios.get('http://localhost:3001/api/hotels/', { params: { sort_order: sortOrderBudgetQuery}})
       .then((res) => {
         setHotelModalInfo(res.data.hotels);
-        // console.log(res.data.hotels)
       })
   };
 
   const getHotelInfo = (clickedHotel) => {
-    console.log('hotel info', clickedHotel)
-    // useEffect / setTimeout
     setHotelInfo(clickedHotel);
     console.log('hotel info state', hotelInfo);
   }
@@ -51,8 +50,6 @@ function Hotels() {
                   </button>
                 </div>
 
-
-
                 {/* HOTEL GRID CONTAINER */}
                 <div className="py-3 px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5 ">
                   {hotelModalInfo.map((hotelInfo) => (
@@ -74,8 +71,6 @@ function Hotels() {
                    ))}
                 </div>
 
-
-
               </div>
             </div>
           </div>
@@ -85,31 +80,32 @@ function Hotels() {
 
 
       {/* LUXURY GETAWAY CARD */}
-      <h3 className="text-left text-3xl font-bold px-28">Living</h3>
+      <Fade bottom><h3 className="text-left text-3xl font-bold px-28">Living</h3></Fade>
       <div className="py-3 px-28 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5 ">
         <div className="rounded overflow-hidden">
-          <img className="w-full h-3/4 rounded-lg shadow-inner cursor-pointer"
+          <Fade left><img className="w-full h-3/4 rounded-lg shadow-inner cursor-pointer"
             src={cabin}
             alt="cabin"
             onClick={() => { getModalInfoHotels(); setShowHotelModal(true) }}>
-          </img>
-          <div className="px-1 py-1">
+          </img></Fade>
+          <Fade left><div className="px-1 py-1">
             <h3 className="font-bold text-lg mb-2 text-left">Luxury getaways</h3>
-          </div>
+          </div></Fade>
         </div>
         {/* BUDGET FRIENDLY CARD */}
         <div className="rounded overflow-hidden">
-          <img className="w-full h-3/4 rounded-lg shadow-inner cursor-pointer"
+          <Fade right><img className="w-full h-3/4 rounded-lg shadow-inner cursor-pointer"
             src={family}
             alt="family"
             onClick={() => { getModalInfoHotels('STAR_RATING_LOWEST_FIRST'); setShowHotelModal(true) }}
-          ></img>
+          ></img></Fade>
           <div className="px-1 py-1">
-            <h3 className="font-bold text-lg mb-2 text-left">Budget friendly</h3>
+            <Fade right><h3 className="font-bold text-lg mb-2 text-left">Budget friendly</h3></Fade>
           </div>
         </div>
 
       </div>
+
     </>
   )
 }

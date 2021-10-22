@@ -72,6 +72,16 @@ module.exports = {
         res.status(200).send(output);
       })
   },
+  getCity: (req, res) => {
+    const lat = req.query.position.coords.latitude;
+    const lng = req.query.position.coords.longitude;
+
+    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${TOKENS.GOOGLE_GEOCODING_KEY}`)
+      .then((response) => {
+        const data = response.results.address_components[5].long_name;
+        res.status(200).send(data);
+      })
+  },
   getHotels: (req, res) => {
     const city = req.query.city?.split(' ').join('+') || 'San+Francisco';
     const checkin_date = req.query.checkin_date || '2021-10-24';

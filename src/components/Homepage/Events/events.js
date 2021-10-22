@@ -4,6 +4,8 @@ import music from './music.jpeg';
 import art from './art.jpeg';
 import sports from './sports.jpeg';
 
+import Fade from 'react-reveal/Fade';
+
 function Events() {
   const [showEventModal, setShowEventModal] = useState(false);
   const [eventModalInfo, setEventModalInfo] = useState([]);
@@ -78,28 +80,28 @@ function Events() {
       ) : null}
 
       {/* EVENT CARDS */}
-      <h3 className="text-left text-3xl font-bold px-28">Events Near You</h3>
+      <Fade bottom><h3 className="text-left text-3xl font-bold px-28">Events Near You</h3></Fade>
       <div className="py-3 px-28 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
         {/* EVENT ART CARD */}
         <div className="rounded overflow-hidden">
-          <img className="w-full h-4/5 rounded-lg shadow-inner cursor-pointer" src={art} alt="art" onClick={() => { getModalInfoEvents('Arts & Theatre'); setShowEventModal(true) }}></img>
-          <div className="px-1 py-1">
+          <Fade bottom delay={600}><img className="w-full h-4/5 rounded-lg shadow-inner cursor-pointer" src={art} alt="art" onClick={() => { getModalInfoEvents('Arts & Theatre'); setShowEventModal(true) }}></img></Fade>
+          <Fade bottom delay={600}><div className="px-1 py-1">
             <div className="font-bold text-base mb-2 text-left">Arts</div>
-          </div>
+          </div></Fade>
         </div>
         {/* EVENT SPORTS CARD */}
         <div className="rounded overflow-hidden">
-          <img className="w-full h-4/5 rounded-lg shadow-inner cursor-pointer" src={sports} alt="sports" onClick={() => { getModalInfoEvents('Sports'); setShowEventModal(true) }}></img>
-          <div className="px-1 py-1">
+          <Fade bottom delay={300}><img className="w-full h-4/5 rounded-lg shadow-inner cursor-pointer" src={sports} alt="sports" onClick={() => { getModalInfoEvents('Sports'); setShowEventModal(true) }}></img></Fade>
+          <Fade bottom delay={300}><div className="px-1 py-1">
             <div className="font-bold text-base mb-2 text-left">Sports</div>
-          </div>
+          </div></Fade>
         </div>
         {/* EVENT MUSIC CARD */}
         <div className="rounded overflow-hidden">
-          <img className="w-full h-4/5 rounded-lg shadow-inner cursor-pointer" src={music} alt="music" onClick={() => { getModalInfoEvents('Music'); setShowEventModal(true) }}></img>
-          <div className="px-1 py-1">
+          <Fade bottom><img className="w-full h-4/5 rounded-lg shadow-inner cursor-pointer" src={music} alt="music" onClick={() => { getModalInfoEvents('Music'); setShowEventModal(true) }}></img></Fade>
+          <Fade bottom><div className="px-1 py-1">
             <div className="font-bold text-base mb-2 text-left">Music</div>
-          </div>
+          </div></Fade>
         </div>
       </div>
     </>
