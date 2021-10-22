@@ -43,7 +43,7 @@ const CardInfo = styled.div`
 const Button = styled.button`
   position: absolute;
   right: 42%;
-  bottom: 10%;
+  bottom: 8%;
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -53,6 +53,11 @@ const Button = styled.button`
   background-color: #EDEDED;
   border-radius: 8px;
   margin-bottom: 15px;
+  &:hover {
+    transition: 0.5s;
+    background-color: #D7E9F7;
+    transform: translateY(-5px);
+   }
 `;
 
 
@@ -79,7 +84,7 @@ const Payment = () => {
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-left ml-20 my-8">Final Step - Secure your booking :)</h2>
+      <h2 className="text-xl font-bold text-center ml-20 my-8">Final Step - Secure your booking :)</h2>
       <PassengerInfo>
         <h2 className="text-xl font-bold mt-4 text-left">Who's travelling?</h2>
         <span className="warning text-xs">Traveler names must match government-issued photot ID exactly.</span><br />
