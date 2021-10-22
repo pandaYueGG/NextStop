@@ -10,6 +10,7 @@ const FilterAirlines = () => {
       <input type="checkbox" name="Allegiant Air" /> Allegiant Air<br/>
       <input type="checkbox" name="American Airlines" /> American Airlines<br/>
       <input type="checkbox" name="Delta Air Lines" /> Delta Air Lines<br/>
+      <input type="checkbox" name="United Airlines" /> United Airlines<br/>
     </div>
   );
 };
