@@ -13,6 +13,7 @@ const FlightModal = styled.div`
  padding: 24px;
  margin-top: 4vh;
  margin-left: 15vw;
+ margin-right: 5vw;
  float: left;
  display: block;
  flex-direction: column;
@@ -103,8 +104,6 @@ const EmptyModal = styled.div`
   margin-top: 4vh;
   margin-left: 5vw;
   margin-right: 15vw;
-  margin-bottom: 2vw;
-  float: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -151,7 +150,8 @@ const Checkout = ({ flight, hotel, events }) => {
         <span><strong>Stops: </strong>{flight.stopsAirports}</span><br />
         <span><strong>Trip Type: </strong>{flight.type}</span>
       </FlightModal>
-      { hotel ? <HotelModal>
+      { hotel
+      ? <HotelModal>
         <img className="w-1/2 rounded-lg shadow-inner" src='https://exp.cdn-hotels.com/hotels/2000000/1860000/1853300/1853240/11492672_z.jpg?impolicy=fcrop&w=250&h=140&q=high'/>
         <span>Fairmont Heritage Place, Ghirardelli Square</span><br />
         <span>streetAddress: 900 N Point Street</span><br />
@@ -160,7 +160,7 @@ const Checkout = ({ flight, hotel, events }) => {
       </HotelModal>
       : <EmptyModal>
           <span>OOPS! You haven't reserved any hotels! Let's find some nice hotels!</span><br />
-          <SmallButton>Let's Do it!</SmallButton>
+          <SmallButton onClick={() => {history.push("/hotels")}}>Let's Do it!</SmallButton>
         </EmptyModal>}
 
       { events
@@ -178,7 +178,7 @@ const Checkout = ({ flight, hotel, events }) => {
         </EventModal>
       : <EmptyModal>
           <span>Let's Explore Some Interesting Events</span><br />
-          <SmallButton>Let's Do it!</SmallButton>
+          <SmallButton onClick={() => {history.push("/events")}}>Let's Do it!</SmallButton>
         </EmptyModal>}
       <Button onClick={() => {history.push("/payment")}} className="pay-btn">My Wallet Is Ready</Button>
     </div>
