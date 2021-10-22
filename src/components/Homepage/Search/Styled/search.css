@@ -51,3 +51,41 @@
   max-width: 300px;
   transition: none;
 }
+
+.pos-rel {
+  position: relative;
+}
+
+.autoContainer {
+  position: absolute;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: lightgray;
+  background-color: white;
+  left: 30px;
+  top: 50px;
+  width: 93%;
+  z-index: 100;
+  max-height: 20vh;
+  overflow-y: scroll;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px;
+}
+
+.option:hover {
+  background-color: lightgray;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
