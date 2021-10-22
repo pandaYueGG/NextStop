@@ -3,7 +3,6 @@ import axios from 'axios';
 import cabin from './cabin.jpeg';
 import family from './family.jpeg';
 import { useHistory } from 'react-router-dom';
-import HotelPage from './HotelPage.js';
 
 const HotelContext = React.createContext()
 
@@ -12,15 +11,12 @@ function Hotels() {
   const [hotelModalInfo, setHotelModalInfo] = useState([]);
   const [hotelInfo, setHotelInfo] = useState([]);
 
-  const [user, setUser] = useState('Me!');
-
   let renderHotelPage = useHistory();
 
   const getModalInfoHotels = (sortOrderBudgetQuery) => {
     axios.get('http://localhost:3001/api/hotels/', { params: { sort_order: sortOrderBudgetQuery}})
       .then((res) => {
         setHotelModalInfo(res.data.hotels);
-        // console.log(res.data.hotels)
       })
   };
 
