@@ -4,6 +4,12 @@ import { PaperAirplaneIcon } from '@heroicons/react/outline';
 import { HomeIcon } from '@heroicons/react/outline';
 import { CalendarIcon } from '@heroicons/react/outline';
 import { MenuIcon } from '@heroicons/react/outline';
+import  lv from '../Homepage/Flights/LV.jpeg';
+import  NY from '../Homepage/Flights/NY.jpeg';
+import  MI from '../Homepage/Flights/MI.jpeg';
+import  cabin from '../Homepage/Hotels/cabin.jpeg';
+import  dog from '../Homepage/Hotels/dog.jpeg';
+import  family from '../Homepage/Hotels/family.jpeg';
 
 function profile() {
     return (
@@ -42,15 +48,15 @@ function profile() {
                     <div className="mt-6 w-full px-20 justify-items-center">
                         <div className=" border rounded-lg bg-white shadow-lg overflow-hidden">
                             <div className="mt-10 text-2xl font-bold text-left ml-10">Your Upcoming Flights</div>
-                            <div className="grid grid-cols-3 gap-4">
-                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden  py-16 my-10">
-                                    Flight 1
+                            <div className="grid grid-cols-3 gap-4 py-10">
+                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden">
+                                    <img className="w-full h-full rounded-lg shadow-inner cursor-pointer" src={lv} />
                                 </div>
-                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden  py-16 my-10">
-                                    Flight 2
+                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden">
+                                <img className="w-full h-full rounded-lg shadow-inner cursor-pointer" src={NY} />
                                 </div>
-                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden  py-16 my-10">
-                                    Flight 3
+                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden">
+                                <img className="w-full h-full rounded-lg shadow-inner cursor-pointer" src={MI} />
                                 </div>
                             </div>
                         </div>
@@ -58,15 +64,15 @@ function profile() {
                     <div className="mt-6 w-full px-20 justify-items-center">
                         <div className=" border rounded-lg bg-white shadow-lg overflow-hidden">
                             <div className="mt-10 text-2xl font-bold text-left ml-10">Your Hotels</div>
-                            <div className="grid grid-cols-3 gap-4">
-                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden  py-16 my-10">
-                                    Hotel 1
+                            <div className="grid grid-cols-3 gap-4 py-10">
+                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden">
+                                    <img className="w-full h-full rounded-lg shadow-inner cursor-pointer" src={cabin} />
                                 </div>
-                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden  py-16 my-10">
-                                    Hotel 2
+                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden">
+                                    <img className="w-full h-full rounded-lg shadow-inner cursor-pointer" src={dog} />
                                 </div>
-                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden  py-16 my-10">
-                                    Hotel 3
+                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden">
+                                    <img className="w-full h-full rounded-lg shadow-inner cursor-pointer" src={family} />
                                 </div>
                             </div>
                         </div>
@@ -74,15 +80,15 @@ function profile() {
                     <div className="mt-6 w-full px-20 justify-items-center">
                         <div className=" border rounded-lg bg-white shadow-lg overflow-hidden">
                             <div className="mt-10 text-2xl font-bold text-left ml-10">Your Events</div>
-                            <div className="grid grid-cols-3 gap-4">
-                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden  py-16 my-10">
-                                    Event 1
+                            <div className="grid grid-cols-3 gap-4 py-10">
+                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden">
+                                    <img className="w-full h-full rounded-lg shadow-inner cursor-pointer" src={lv} />
                                 </div>
-                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden  py-16 my-10">
-                                    Event 2
+                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden">
+                                    <img className="w-full h-full rounded-lg shadow-inner cursor-pointer" src={lv} />
                                 </div>
-                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden  py-16 my-10">
-                                    Event 3
+                                <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden">
+                                    <img className="w-full h-full rounded-lg shadow-inner cursor-pointer" src={lv} />
                                 </div>
                             </div>
                         </div>
