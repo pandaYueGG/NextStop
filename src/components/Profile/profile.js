@@ -185,22 +185,21 @@ function profile() {
                             <div className="grid grid-cols-3 gap-4 py-10">
                                 
                                 {eventModalInfo.map((eventInfo) => (
-                                    <div className="rounded overflow-hidden h-72" key={eventInfo.id}>
-                                    {/* {console.log(eventInfo)} */}
-                                    {/* EVENT IMAGE */}
-                                    <img className="w-full h-3/5 rounded-lg shadow-inner cursor-pointer"
-                                        src={eventInfo.image.url}
-                                        alt="cabin"
-                                        onClick={() => { }}>
-                                    </img>
-                                    {/* EVENT INFORMATION */}
-                                    <div className="px-1 py-1 flex-col" key={eventInfo.id}>
-                                        <h3 className="font-bold text-xs mb-0 text-left text-gray-500">{eventInfo.venue.name}</h3>
-                                        <h3 className="font-bold text-xs mb-0 text-left">{eventInfo.name}</h3>
-                                        <h3 className="font-bold text-xs mb-0 float-left items-end">{eventInfo.time.slice(0, -3)}PST, {eventInfo.date}</h3>
-                                        <h3 className="font-bold text-xs mb-0 float-right items-end">${eventInfo.priceMin}</h3>
+                                    <div className="rounded overflow-hidden h-72 px-10" key={eventInfo.id}>
+                                        <img className="w-full h-3/5 rounded-lg shadow-inner cursor-pointer"
+                                            src={eventInfo.image.url}
+                                            alt="cabin"
+                                            onClick={() => { }}>
+                                        </img>
+                                        <div className="px-1 py-1 flex-col" key={eventInfo.id}>
+                                            <h3 className="font-bold text-xs mb-0 text-left text-gray-500">{eventInfo.venue.name}</h3>
+                                            <h3 className="font-bold text-xs mb-0 text-left">{eventInfo.name}</h3>
+                                            <h3 className="font-bold text-xs mb-0 float-left items-end">{eventInfo.time.slice(0, -3)}PST, {eventInfo.date}</h3>
+                                            <h3 className="font-bold text-xs mb-0 float-right items-end">${eventInfo.priceMin}</h3>
+                                            
+                                        </div>
                                     </div>
-                                    </div>
+                                    
                                 ))}
                                 
                             </div>
