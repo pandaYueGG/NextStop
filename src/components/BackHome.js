@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory} from 'react-router-dom';
-import img from './splash-image.png'
+
 
 
 const Button = styled.button`

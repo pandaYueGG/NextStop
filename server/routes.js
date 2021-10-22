@@ -12,7 +12,11 @@ router.get('/flights', flights.getRoutes);
 
 router.get('/hotels', (req, res) => { apiHelpers.getHotels(req, res) });
 
+router.get('/hotelsWithLocation', (req, res) => { apiHelpers.getHotelsWithLocation(req, res) });
+
 router.get('/events', (req, res) => { apiHelpers.getEvents(req, res) });
+
+router.get('/eventsWithLocation', (req, res) => { apiHelpers.getEventsWithLocation(req, res) });
 
 router.post('/register', (req, res) => { users.addUser(req, res) });
 
@@ -21,9 +25,9 @@ router.post('/login', (req, res) => { users.getUser(req, res) });
 router.get('/login', (req, res) => { users.getLogin(req, res) });
 
 const verifyJWT = (req, res, next) => {
-    
+
     const token = req.headers["x-access-token"]
-    
+
     if (!token) {
         res.send("User must have a token, please verify using token")
     } else {

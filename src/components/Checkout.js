@@ -13,6 +13,7 @@ const FlightModal = styled.div`
  padding: 24px;
  margin-top: 4vh;
  margin-left: 15vw;
+ margin-right: 5vw;
  float: left;
  display: block;
  flex-direction: column;
@@ -81,12 +82,53 @@ const Button = styled.button`
   height: 36px;
   font-size: 16px;
   background-color: #EDEDED;
+  border-width: 0.5px;
+  border-color: #C9CCD5;
   border-radius: 8px;
   margin-bottom: 15px;
+  &:hover {
+    transition: 0.5s;
+    background-color: #D7E9F7;
+   }
 `;
 
+const EmptyModal = styled.div`
+  background-color: #fff;
+  width: 45vw;
+  height: 20vh;
+  border-width: 0.5px;
+  border-color: #C9CCD5;
+  border-radius: 16px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  margin-top: 4vh;
+  margin-left: 5vw;
+  margin-right: 15vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
-const Checkout = ({ flight }) => {
+const SmallButton = styled.button`
+   display: flex;
+   width: 120px;
+   height: 36px;
+   background-color: #fff;
+   border-width: 0.5px;
+   border-color: #C9CCD5;
+   border-radius: 8px;
+   margin-bottom: 15px;
+   justify-content: center;
+   align-items: center;
+   &:hover {
+    transition: 0.5s;
+    background-color: #D7E9F7;
+    transform: translateY(-10px);
+   }
+`;
+
+const Checkout = ({ flight, hotel, events }) => {
   let history = useHistory();
   console.log("flight: ", flight);
 
@@ -108,25 +150,36 @@ const Checkout = ({ flight }) => {
         <span><strong>Stops: </strong>{flight.stopsAirports}</span><br />
         <span><strong>Trip Type: </strong>{flight.type}</span>
       </FlightModal>
-      <HotelModal>
+      { hotel
+      ? <HotelModal>
         <img className="w-1/2 rounded-lg shadow-inner" src='https://exp.cdn-hotels.com/hotels/2000000/1860000/1853300/1853240/11492672_z.jpg?impolicy=fcrop&w=250&h=140&q=high'/>
         <span>Fairmont Heritage Place, Ghirardelli Square</span><br />
         <span>streetAddress: 900 N Point Street</span><br />
         <span>San Francisco, 94109</span><br />
         <span>rating: 4.7</span>
       </HotelModal>
-      <EventModal>
-        <EventItem>
-          <img className="w-3/5 rounded-lg shadow-inner cursor-pointer" src='https://s1.ticketm.net/dam/a/2c9/7a648164-4707-4c86-baba-5bad764542c9_954861_RETINA_PORTRAIT_3_2.jpg'/>
-          <span>AK: Fate Loves The Fearless Tour</span><br />
-          <span>2021-10-17</span><br />
-        </EventItem>
-        <EventItem>
-          <img className="w-3/5 rounded-lg shadow-inner cursor-pointer" src='https://s1.ticketm.net/dam/a/2c9/7a648164-4707-4c86-baba-5bad764542c9_954861_RETINA_PORTRAIT_3_2.jpg'/>
-          <span>AK: Fate Loves The Fearless Tour</span><br />
-          <span>2021-10-17</span><br />
-        </EventItem>
-      </EventModal>
+      : <EmptyModal>
+          <span>OOPS! You haven't reserved any hotels! Let's find some nice hotels!</span><br />
+          <SmallButton onClick={() => {history.push("/hotels")}}>Let's Do it!</SmallButton>
+        </EmptyModal>}
+
+      { events
+      ? <EventModal>
+          <EventItem>
+            <img className="w-3/5 rounded-lg shadow-inner cursor-pointer" src='https://s1.ticketm.net/dam/a/2c9/7a648164-4707-4c86-baba-5bad764542c9_954861_RETINA_PORTRAIT_3_2.jpg'/>
+            <span>AK: Fate Loves The Fearless Tour</span><br />
+            <span>2021-10-17</span><br />
+          </EventItem>
+          <EventItem>
+            <img className="w-3/5 rounded-lg shadow-inner cursor-pointer" src='https://s1.ticketm.net/dam/a/2c9/7a648164-4707-4c86-baba-5bad764542c9_954861_RETINA_PORTRAIT_3_2.jpg'/>
+            <span>AK: Fate Loves The Fearless Tour</span><br />
+            <span>2021-10-17</span><br />
+          </EventItem>
+        </EventModal>
+      : <EmptyModal>
+          <span>Let's Explore Some Interesting Events</span><br />
+          <SmallButton onClick={() => {history.push("/events")}}>Let's Do it!</SmallButton>
+        </EmptyModal>}
       <Button onClick={() => {history.push("/payment")}} className="pay-btn">My Wallet Is Ready</Button>
     </div>
 
