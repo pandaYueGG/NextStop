@@ -139,7 +139,7 @@ const Checkout = ({ flight, hotel, events }) => {
       </div>
       <FlightModal className="flight-info">
         <span style={{fontWeight: "bold", fontSize: "24px"}}>Your Flight</span>
-        <span style={{fontWeight: "bold", fontSize: "24px", float: "right"}}>${flight.price}</span><br />
+        <span style={{fontWeight: "bold", fontSize: "24px", float: "right"}}>${flight.flight[0].price}</span><br />
         <img className="airline-name w-32 mt-8 mb-4" src={flight.thumbnail}/>
         <span><strong>Airlines: </strong>{flight.airline}</span><hr />
         <span><strong>From: </strong> {flight.local} </span>

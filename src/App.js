@@ -11,15 +11,29 @@ import SearchFlightWidget from './components/searchFlights/SearchFlightWidget';
 import Profile from './components/Profile/profile.js';
 import ProtectedRoute from './components/ProtectedRoutes/ProtectedRoutes.js';
 import {LoginContext} from './Context.js';
-import Checkout from './components/Checkout';
+// import Checkout from './components/Checkout';
 import Payment from './components/Payment';
 import BackHome from './components/BackHome';
+import Checkout from './components/Checkout.js';
+
 
 
 navigator.geolocation.getCurrentPosition(function(position) {
   console.log("Latitude is: ", position.coords.latitude);
   console.log("Longitude is: ", position.coords.longitude);
 });
+
+const flight = {
+  "origin": "San Francisco International",
+  "destination": "New York John F. Kennedy",
+  "flight": [
+      {
+          "price": 212,
+          "departure": "2021-10-22T00:00:00",
+          "airline": "jetBlue"
+      }
+  ]
+}
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
