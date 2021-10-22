@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { enGB } from 'date-fns/locale';
 import { DatePicker } from 'react-nice-dates';
 import 'react-nice-dates/build/style.css';
@@ -31,7 +31,7 @@ const Search = () => {
   let history = useHistory();
 
   return (
-    <div className="banner justify-center xl:justify-start">
+    <div className="banner justify-center xl:justify-start fast">
       <div className="search w-full h-auto sm:w-4/5 sm:h-4/5 xl:w-2/6 xl:h-3/4">
         <div className="search-body">
           <div className="my-2">

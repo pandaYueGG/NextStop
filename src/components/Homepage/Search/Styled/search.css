@@ -1,6 +1,6 @@
 .banner {
   position: relative;
-  background-image: url("../splash-image.png");
+  /* background-image: url("../splash-image.png"); */
   width: 100vw;
   height: 80vh;
   background-size: cover;
