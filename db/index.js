@@ -5,7 +5,7 @@ var dbConnection;
 dbConnection = mysql.createConnection({
   user: 'root',
   host: 'localhost',
-  password: 'password',
+  password: '',
   database: 'NSDB'
 });
 
