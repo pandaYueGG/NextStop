@@ -22,7 +22,7 @@ const FlightSummary = () => {
   return (
     <div>
       <h2 className="text-xl font-bold text-left ml-20 my-8">Secure your booking</h2>
-      <div className="payment w-1/3 h-1/2 float-right  mx-20 border-2 rounded-lg grid grid-rows-18 grid-cols-5">
+      <div className="payment w-1/3 h-1/2 float-right mx-8 border-2 rounded-lg grid grid-rows-12 grid-cols-5">
         <h2 className="text-xl font-bold ml-4 mt-4 row-start-1 col-start-1 col-span-2 text-left">How would you like to pay?</h2>
         <img className="ml-4 mt-2 row-start-2 col-span-1 inline-block flex-row" src="https://a.travel-assets.com/dms-svg/payments/cards-cc_master_card.svg" alt="MasterCard" />
         <img className="mt-2 row-start-2 col-span-1 inline-block flex-row" src="https://a.travel-assets.com/dms-svg/payments/cards-cc_american_express.svg" alt="AmericanExpress" />
@@ -41,10 +41,10 @@ const FlightSummary = () => {
         <input className=" ml-4 mt-2 row-start-8 col-start-1 col-span-3 w-36 h-8"
           onChange={(e) => setBillCountry(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-country" required />
         <label className="text-xs ml-4 mt-2 row-start-9 col-start-1 col-span-1 text-left">Billing Address 1*</label>
-        <input className=" ml-4 mt-2 row-start-10 col-start-1 col-span-1 w-48 h-8"
+        <input className=" ml-4 mt-2 row-start-10 col-start-1 col-span-3 w-48 h-8"
           onChange={(e) => setBillAddressOne(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-address-one" required />
-        <label className="text-xs ml-4 mt-2  row-start-9 col-start-3 text-left">Billing Address 2</label>
-        <input className="ml-4 mt-2 row-start-10 col-start-3 w-36 h-8"
+        <label className="text-xs ml-4 mt-2  row-start-9 col-start-4 text-left">Billing Address 2</label>
+        <input className="ml-4 mt-2 row-start-10 col-start-4 w-36 h-8"
           onChange={(e) => setBillAddressTwo(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-address-two"/>
         <label className="text-xs ml-4 mt-2 row-start-11 col-start-1 text-left">City*</label>
         <input className=" ml-4 mt-2 row-start-12 col-start-1 w-28 h-8"
