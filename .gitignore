@@ -28,5 +28,3 @@ yarn-error.log*
 #packagelock
 package-lock.json
 
-#db index.js
-db/index.js
