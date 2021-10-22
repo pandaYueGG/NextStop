@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { Img, Body, Box } from './ListCheckoutStyles.js';
+import React, { useState } from 'react'
+import { Img, Box, Body } from './ListCheckoutStyles.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleLeft, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
 
 const Hotels = () => {
   const data = {
@@ -355,53 +357,137 @@ const Hotels = () => {
     <div>
       <h3
         style={{
-                fontSize: 24,
-                fontWeight: 'bold',
-                marginTop: 10,
+          fontSize: 24,
+          fontWeight: 'bold',
+          marginTop: 10,
         }}
       >
         Hotels in San Francisco during your stay...
       </h3>
-      <input
+      <div style={{ alignItems: 'center' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'horizontal',
+            justifyContent: 'space-between',
+            alignItems: 'center'
+          }}
+        >
+          <a
             style={{
-                borderWidth: 1,
-                borderColor: 'black',
-                borderStyle: 'solid',
-                marginTop: 15,
-                marginBottom: 10,
-                width: 400,
-                backgroundColor: 'whitesmoke'
+              display: 'flex',
+              flexDirection: 'horizontal',
+              alignItems: 'center',
+              borderRadius: '15px',
+              borderColor: 'black',
+              borderStyle: 'solid',
+              borderWidth: 1,
+              marginLeft: 40,
+              cursor: 'pointer',
+              backgroundColor: 'rgba(78, 205, 196, 0.3)',
             }}
-                placeholder=' Search for events'
-                onChange={(e) => {
-                    handleChange(e)
-                }}
+            className={'hover:opacity-60'}
+            href='/searchFlight'
+          >
+            <FontAwesomeIcon
+              icon={faArrowAltCircleLeft}
+              className={'ml-2 mr-5'}
+              style={{
+                fontSize: 30,
+                color: '#1A535C'
+              }}
             />
-      {hotels.map(hotel => (
-        <Box>
-          <Img
-            src={hotel.image}
-            alt={hotel.name}
+            <p style={{ fontSize: 18, fontWeight: 'bold', color: '#1A535C' }} className={'mr-3 py-1.5'}>Flights</p>
+          </a>
+          <input
             style={{
-              margin: '1em',
-              marginLeft: '1.5em'
+              borderWidth: 1,
+              borderColor: 'black',
+              borderStyle: 'solid',
+              marginTop: 15,
+              marginBottom: 10,
+              paddingLeft: 10,
+              width: 400,
+              backgroundColor: 'whitesmoke'
+            }}
+            placeholder='Search for events'
+            onChange={(e) => {
+              handleChange(e)
             }}
           />
-          <Body>
-            <h4 style={{
-              fontSize: '1.2em',
-              fontWeight: 'bold'
-            }}>
-              {hotel.name}
-            </h4>
-            <p>{hotel.address.streetAddress}, {hotel.address.city}, {hotel.address.zip}</p>
-            <p>Price/night: ${hotel.pricePerNight}</p>
-            <p>{hotel.neighborhood}</p>
-            <p>Rating: {hotel.starRating}</p>
-          </Body>
-        </Box>
-      )
-      )}
+          <a
+            style={{
+              display: 'flex',
+              flexDirection: 'horizontal',
+              alignItems: 'center',
+              borderRadius: '15px',
+              borderColor: 'black',
+              borderStyle: 'solid',
+              borderWidth: 1,
+              marginRight: 40,
+              cursor: 'pointer',
+              backgroundColor: 'rgba(78, 205, 196, 0.3)',
+            }}
+            className={'hover:opacity-60'}
+            href='/events'
+          >
+            <p style={{ fontSize: 18, fontWeight: 'bold', color: '#1A535C' }} className={'ml-3 py-1.5'}>Events</p>
+            <FontAwesomeIcon
+              icon={faArrowAltCircleRight}
+              className={'ml-5 mr-2'}
+              style={{
+                fontSize: 30,
+                color: '#1A535C'
+              }}
+            />
+          </a>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'horizontal',
+            flexWrap: 'wrap'
+          }}
+        >
+          {hotels.map(hotel => (
+            <Box
+              style={{
+                gridTemplateColumns: '20% 80%',
+                borderRadius: '15px',
+                backgroundColor: 'whitesmoke',
+                boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+              }}>
+              <Img
+                src={hotel.image}
+                alt={hotel.name}
+                style={{
+                  width: 120,
+                  height: 100,
+                  margin: 10,
+                }}
+              />
+              <Body
+                style={{
+                  textAlign: 'left',
+                  margin: '0 20px',
+                }}
+              >
+                <h4 style={{
+                  fontSize: '1.2em',
+                  fontWeight: 'bold'
+                }}>
+                  {hotel.name}
+                </h4>
+                <p>{hotel.address.streetAddress}, {hotel.address.city}, {hotel.address.zip}</p>
+                <p>Price/night: ${hotel.pricePerNight}</p>
+                <p>{hotel.neighborhood}</p>
+                <p>Rating: {hotel.starRating}</p>
+              </Body>
+            </Box>
+          )
+          )}
+        </div>
+      </div>
     </div>
   )
 }
