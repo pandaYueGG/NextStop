@@ -13,7 +13,7 @@ const flightData  = [
     "stopsNumber": 1,
     "stopsAirports": "SLC",
     "price": 142,
-    "type": "one-way"
+    "type": "one-way",
   }
 ]
 
