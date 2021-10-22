@@ -146,13 +146,13 @@ function profile() {
                                             <span>${flight.price}</span><br />
                                             <span>{flight.type}</span>
                                             </div>
-                                            <button className="mt-2 py-2 px-3 text-white bg-gray-400 hover:bg-gray-300 rounded" >View</button>
+                                            <button className="mt-2 py-2 px-3 text-white bg-green-900 hover:bg-green-600 rounded" >View</button>
                                         </div>
                                     )
                                     )}
                                 
                             </div>
-                            <button className="py-2 px-3 text-white bg-black hover:bg-gray-600 rounded mb-10" >Show More</button>
+                            <button className="py-2 px-3 text-white bg-green-900 hover:bg-green-600 rounded mb-10" >Show More</button>
                         </div>
                     </div>
                     <div className="mt-6 w-full px-20 justify-items-center">
@@ -170,13 +170,13 @@ function profile() {
                                                 <div className="text-lg">{hotel.neighborhood}</div>
                                                 <div className="text-lg">Rating: {hotel.starRating}</div>
                                             </div>
-                                            <button className="mt-2 py-2 px-3 text-white bg-gray-400 hover:bg-gray-300 rounded" >View</button>
+                                            <button className="mt-2 py-2 px-3 text-white bg-green-900 hover:bg-green-600 rounded" >View</button>
                                         </div>
                                     )
                                     )}
                                 
                             </div>
-                            <button className="py-2 px-3 text-white bg-black hover:bg-gray-600 rounded mb-10" >Show More</button>
+                            <button className="py-2 px-3 text-white bg-green-900 hover:bg-green-600 rounded mb-10" >Show More</button>
                         </div>
                     </div>
                     <div className="mt-6 w-full px-20 justify-items-center">
@@ -203,7 +203,7 @@ function profile() {
                                 ))}
                                 
                             </div>
-                            <button className="py-2 px-3 text-white bg-black hover:bg-gray-600 rounded mb-10" >Show More</button>
+                            <button className="py-2 px-3 text-white bg-green-900 hover:bg-green-600 rounded mb-10" >Show More</button>
                         </div>
                     </div>
                 </div>
