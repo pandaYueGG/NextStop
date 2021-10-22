@@ -24,8 +24,8 @@ const PassengerInfo = styled.div`
 
 const CardInfo = styled.div`
   background-color: #F3F1F5;
-  width: 30vw;
-  height: 60vh;
+  width: 34vw;
+  height: 80vh;
   border-width: 0.5px;
   border-color: #FEF5ED;
   border-radius: 16px;
@@ -41,12 +41,10 @@ const CardInfo = styled.div`
 `;
 
 const Button = styled.button`
-  position: absolute;
-  right: 42%;
-  bottom: 8%;
   display: block;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 15px;
   width: 360px;
   height: 36px;
   font-size: 16px;
@@ -84,7 +82,7 @@ const Payment = () => {
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-center ml-20 my-8">Final Step - Secure your booking :)</h2>
+      <h2 className="text-xl font-bold text-center ml-20 my-8">Final Step - Secure your booking 😊</h2>
       <PassengerInfo>
         <h2 className="text-xl font-bold mt-4 text-left">Who's travelling?</h2>
         <span className="warning text-xs">Traveler names must match government-issued photot ID exactly.</span><br />
@@ -120,7 +118,7 @@ const Payment = () => {
           <input type="radio" value="Female" name="gender" /><span className="ml-2 mr-4"> Female</span>
           <input type="radio" value="Other" name="gender" /><span className="ml-2 mr-4"> Other </span>
         </div>
-        <label>Date of Brith*</label>
+        <label>Date of Birth*</label>
         {/* birthday */}
         <div className="birth-date my-2">
           <DatePicker onChange={onChange} value={value}/>
@@ -157,6 +155,7 @@ const Payment = () => {
         <label>Billing Address 2</label>
         <input className="w-60" onChange={(e) => setBillAddressTwo(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-address-two"/>
         <div className="flex flex-row my-2 text-left">
+          <div style={{display: 'flex', flexWrap: 'wrap'}}>
           <div className="flex flex-col text-left mr-4">
             <label>City*</label>
             <input className="w-40" onChange={(e) => setBillCity(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-city" required />
@@ -169,9 +168,13 @@ const Payment = () => {
             <label>ZIP Code*</label>
             <input className="w-40" onChange={(e) => setCardZip(e.target.value)} style={{"borderWidth": 2}} type="text" id="card-zip"  required />
           </div>
+          </div>
         </div>
       </CardInfo>
-      <Button onClick={() => {history.push("/paymentFinish")}} className="pay-btn">Pay</Button>
+      <div style={{paddingTop: 10}}>
+        <br/>
+        <Button onClick={() => {history.push("/paymentFinish")}} className="pay-btn">Pay</Button>
+      </div>
     </div>
   );
 };

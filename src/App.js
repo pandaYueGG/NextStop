@@ -45,8 +45,6 @@ function App() {
     setSelectedFlight(flight)
   }
 
-
-
   return (
     <Router>
       <div className="App">

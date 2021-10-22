@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import MI from './MI.jpeg';
 import NY from './NY.jpeg';
@@ -6,6 +6,8 @@ import LV from './LV.jpeg';
 import miami from './miami.png';
 import lasvegas from './lasvegas.png';
 import nyc from './nyc.png';
+
+import Fade from 'react-reveal/Fade';
 
 function Flights() {
   const [showFlightModal, setShowFlightModal] = useState(false);
@@ -98,25 +100,25 @@ function Flights() {
         </>
       ) : null}
 
-      <h3 className="text-left text-3xl font-bold px-28">Popular Destinations</h3>
+      <Fade bottom><h3 className="text-left text-3xl font-bold px-28">Popular Destinations</h3></Fade>
       <div className="py-3 px-28 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
         <div className="rounded overflow-hidden">
-          <img className="w-full h-2/3 rounded-lg shadow-inner cursor-pointer" src={MI} alt="MI" onClick={() => { getModalInfoFlights('MIA', miami); setShowFlightModal(true) }}></img>
-          <div className="px-1 py-1">
+          <Fade bottom><img className="w-full h-2/3 rounded-lg shadow-inner cursor-pointer" src={MI} alt="MI" onClick={() => { getModalInfoFlights('MIA', miami); setShowFlightModal(true) }}></img></Fade>
+          <Fade bottom><div className="px-1 py-1">
             <div className="font-bold text-sm mb-2 text-left">MIAMI</div>
-          </div>
+          </div></Fade>
         </div>
         <div className="rounded overflow-hidden">
-          <img className="w-full h-2/3 rounded-lg shadow-inner cursor-pointer" src={NY} alt="NY" onClick={() => { getModalInfoFlights('JFK', nyc); setShowFlightModal(true) }}></img>
-          <div className="px-1 py-1">
+          <Fade bottom delay={300}><img className="w-full h-2/3 rounded-lg shadow-inner cursor-pointer" src={NY} alt="NY" onClick={() => { getModalInfoFlights('JFK', nyc); setShowFlightModal(true) }}></img></Fade>
+          <Fade bottom delay={300}><div className="px-1 py-1">
             <div className="font-bold text-sm mb-2 text-left">NEW YORK CITY</div>
-          </div>
+          </div></Fade>
         </div>
         <div className="rounded overflow-hidden">
-          <img className="w-full h-2/3 rounded-lg shadow-inner cursor-pointer" src={LV} alt="LV" onClick={() => { getModalInfoFlights('LAS', lasvegas); setShowFlightModal(true) }}></img>
-          <div className="px-1 py-1">
+          <Fade bottom delay={600}><img className="w-full h-2/3 rounded-lg shadow-inner cursor-pointer" src={LV} alt="LV" onClick={() => { getModalInfoFlights('LAS', lasvegas); setShowFlightModal(true) }}></img></Fade>
+          <Fade bottom delay={600}><div className="px-1 py-1">
             <div className="font-bold text-sm mb-2 text-left">LAS VEGAS</div>
-          </div>
+          </div></Fade>
         </div>
       </div>
     </>
