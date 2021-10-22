@@ -52,6 +52,9 @@ function App() {
               </Route>
               <Route exact path="/hotels">
                 <Hotels />
+                </Route>
+              <Route exact path="/hotelpage">
+                <HotelPage />
               </Route>
               <Route exact path="/searchFlight">
                 <SearchFlightWidget addFlight={addFlight} />

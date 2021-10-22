@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import cabin from './cabin.jpeg';
 import family from './family.jpeg';
 import { useHistory } from 'react-router-dom';
-import HotelPage from './HotelPage.js';
+
+const HotelContext = React.createContext()
 
 function Hotels() {
   const [showHotelModal, setShowHotelModal] = useState(false);
@@ -16,13 +17,10 @@ function Hotels() {
     axios.get('http://localhost:3001/api/hotels/', { params: { sort_order: sortOrderBudgetQuery}})
       .then((res) => {
         setHotelModalInfo(res.data.hotels);
-        // console.log(res.data.hotels)
       })
   };
 
   const getHotelInfo = (clickedHotel) => {
-    console.log('hotel info', clickedHotel)
-    // useEffect / setTimeout
     setHotelInfo(clickedHotel);
     console.log('hotel info state', hotelInfo);
   }
@@ -51,8 +49,6 @@ function Hotels() {
                   </button>
                 </div>
 
-
-
                 {/* HOTEL GRID CONTAINER */}
                 <div className="py-3 px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5 ">
                   {hotelModalInfo.map((hotelInfo) => (
@@ -73,8 +69,6 @@ function Hotels() {
                     </div>
                    ))}
                 </div>
-
-
 
               </div>
             </div>
@@ -110,6 +104,7 @@ function Hotels() {
         </div>
 
       </div>
+
     </>
   )
 }
