@@ -472,16 +472,52 @@ const Hotels = () => {
                   margin: '0 20px',
                 }}
               >
-                <h4 style={{
-                  fontSize: '1.2em',
-                  fontWeight: 'bold'
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'horizontal',
+                  justifyContent: 'space-between',
+                  alignItems: 'start',
+                  textAlign: 'left',
+                  margin: '5 0'
                 }}>
-                  {hotel.name}
-                </h4>
-                <p>{hotel.address.streetAddress}, {hotel.address.city}, {hotel.address.zip}</p>
-                <p>Price/night: ${hotel.pricePerNight}</p>
-                <p>{hotel.neighborhood}</p>
-                <p>Rating: {hotel.starRating}</p>
+                  <p
+                    style={{
+                      fontSize: 20,
+                      fontWeight: 'bold',
+                      marginRight: 0,
+                      color: '#1A535C',
+                    }}
+                  >{hotel.name}</p>
+                    <p
+                      style={{ color: 'darkgreen', width: 80, textAlign: 'right', fontWeight: 'bold' }}
+                    >${hotel.pricePerNight}</p>
+                </div>
+                <p style={{ fontSize: 18, margin: '5 0', fontWeight: 'lighter' }}>{hotel.address.streetAddress}</p>
+                <p
+                  style={{
+                    fontStyle: 'italic',
+                    margin: '5 0',
+                    fontWeight: 'lighter'
+                  }}
+                >{hotel.address.city}, {hotel.address.zip}</p>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'horizontal',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: 5,
+                  }}
+                >
+                  <p style={{ margin: '5 0', fontWeight: 'bold' }}>Rating: {hotel.starRating}</p>
+                  <button className="h-6 w-8 py-0 pb-3 text-white bg-red-400 hover:bg-red-500 rounded"
+                    style={{
+                      textAlign: 'center',
+                      alignItems: 'center',
+                      fontWeight: 'bold',
+                      justifyContent: 'center',
+                    }}>+</button>
+                </div>
               </Body>
             </Box>
           )
