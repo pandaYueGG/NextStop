@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 import { PaperAirplaneIcon } from '@heroicons/react/outline';
 import { HomeIcon } from '@heroicons/react/outline';
@@ -65,7 +66,29 @@ function profile() {
     }
 
     const [hotels, setHotels] = useState(data.hotels);
-    
+    const [eventModalInfo, setEventModalInfo] = useState([]);
+
+    // const getModalInfoEvents = (filterEventQuery) => {
+    //     axios.get('http://localhost:3001/api/events/')
+    //       .then((res) => {
+    //         const filteredEvents = res.data.events.filter((event) => {
+    //           return event.classifications[0].segment.name === filterEventQuery;
+    //         })
+    //         setEventModalInfo(filteredEvents);
+    //       })
+    //   };
+
+      useEffect(
+          () => {
+            axios.get('http://localhost:3001/api/events/')
+            .then((res) => {
+                // console.log(res.data.events.slice(0, 3))
+                setEventModalInfo(res.data.events.slice(0,3));
+            }, [])
+          }
+        
+      )
+
     return (
         <>
             <div className="flex min-h-screen">
@@ -161,20 +184,24 @@ function profile() {
                             <div className="mt-10 text-2xl font-bold text-left ml-10">Your Events</div>
                             <div className="grid grid-cols-3 gap-4 py-10">
                                 
-                                    {hotels.map(hotel => (
-                                        <div className="mx-10 border rounded-lg bg-white shadow-lg overflow-hidden py-5">
-                                            <img className="mx-auto my-5 rounded-lg" src={hotel.image} alt={hotel.name}/>
-                                            <div className="text-left mx-10 mt-5">
-                                                <div className="text-lg font-bold">{hotel.name}</div>
-                                                <div className="text-lg"> {hotel.address.streetAddress}, {hotel.address.city}, {hotel.address.zip}</div>
-                                                <div className="text-lg">Price/night: ${hotel.pricePerNight}</div>
-                                                <div className="text-lg">{hotel.neighborhood}</div>
-                                                <div className="text-lg">Rating: {hotel.starRating}</div>
-                                            </div>
-                                            <button className="mt-2 py-2 px-3 text-white bg-gray-400 hover:bg-gray-300 rounded" >View</button>
-                                        </div>
-                                    )
-                                    )}
+                                {eventModalInfo.map((eventInfo) => (
+                                    <div className="rounded overflow-hidden h-72" key={eventInfo.id}>
+                                    {/* {console.log(eventInfo)} */}
+                                    {/* EVENT IMAGE */}
+                                    <img className="w-full h-3/5 rounded-lg shadow-inner cursor-pointer"
+                                        src={eventInfo.image.url}
+                                        alt="cabin"
+                                        onClick={() => { }}>
+                                    </img>
+                                    {/* EVENT INFORMATION */}
+                                    <div className="px-1 py-1 flex-col" key={eventInfo.id}>
+                                        <h3 className="font-bold text-xs mb-0 text-left text-gray-500">{eventInfo.venue.name}</h3>
+                                        <h3 className="font-bold text-xs mb-0 text-left">{eventInfo.name}</h3>
+                                        <h3 className="font-bold text-xs mb-0 float-left items-end">{eventInfo.time.slice(0, -3)}PST, {eventInfo.date}</h3>
+                                        <h3 className="font-bold text-xs mb-0 float-right items-end">${eventInfo.priceMin}</h3>
+                                    </div>
+                                    </div>
+                                ))}
                                 
                             </div>
                             <button className="py-2 px-3 text-white bg-black hover:bg-gray-600 rounded mb-10" >Show More</button>
