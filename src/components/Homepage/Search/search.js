@@ -8,6 +8,8 @@ import { useHistory} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
+import Fade from 'react-reveal/Fade';
+
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
@@ -32,11 +34,12 @@ const Search = () => {
 
   return (
     <div className="banner justify-center xl:justify-start fast">
+      <Fade>
       <div className="search w-full h-auto sm:w-4/5 sm:h-4/5 xl:w-2/6 xl:h-3/4">
         <div className="search-body">
-          <div className="my-2">
+          <Fade top><div className="my-2">
             <h1>Let's plan out your flights and hotels so you don't miss your next event.</h1>
-          </div>
+          </div></Fade>
           <div class="relative flex w-full flex-wrap items-stretch mb-3">
             <span class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
               <FontAwesomeIcon icon={faMapMarkerAlt} />
@@ -70,12 +73,13 @@ const Search = () => {
             </DatePicker>
           </div>
           <div className="flex flex-row my-4">
-              <a href='/searchFlight' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Flights</a>
-              <a href='/hotels' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Hotels</a>
-              <a href='/events' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Events</a>
+              <Fade bottom delay={400}><a href='/searchFlight' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Flights</a></Fade>
+              <Fade bottom delay={400}><a href='/hotels' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Hotels</a></Fade>
+              <Fade bottom delay={400}><a href='/events' className="py-3 px-3 text-white bg-red-400 hover:bg-red-500 rounded mr-5">Find Events</a></Fade>
           </div>
         </div>
       </div>
+      </Fade>
     </div>
   );
 }
