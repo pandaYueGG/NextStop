@@ -83,12 +83,14 @@ const Button = styled.button`
   font-size: 16px;
   background-color: #EDEDED;
   border-width: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-color: #C9CCD5;
   border-radius: 8px;
   margin-bottom: 15px;
   &:hover {
     transition: 0.5s;
     background-color: #D7E9F7;
+    transform: translateY(-10px);
    }
 `;
 
@@ -118,6 +120,7 @@ const SmallButton = styled.button`
    border-width: 0.5px;
    border-color: #C9CCD5;
    border-radius: 8px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
    margin-bottom: 15px;
    justify-content: center;
    align-items: center;

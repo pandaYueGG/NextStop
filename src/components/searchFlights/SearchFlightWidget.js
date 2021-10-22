@@ -15,6 +15,7 @@ const Button = styled.button`
   font-size: 16px;
   background-color: #EDEDED;
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 15px;
   &:hover {
     transition: 0.5s;
@@ -34,8 +35,8 @@ const SearchFlightWidget = ( {addFlight} ) => {
           <span className="font-bold">Filter By:</span>
           <Filters />
         </div>
-        <div className="flight-list float-right border-2 rounded-xl p-1 mx-4">
-          <span className="text-xl font-bold mt-2">Flight List</span>
+        <div className="flight-list float-right rounded-xl p-1 mx-4 text-left ">
+          <span className="text-2xl font-bold mt-2 ml-4 text-left">Flight List</span>
           <FlightList  addFlight={addFlight} />
         </div>
       </div>
