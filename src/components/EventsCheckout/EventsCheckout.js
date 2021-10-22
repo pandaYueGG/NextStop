@@ -3,7 +3,6 @@ import { Img, Box, Body } from '../ListCheckoutStyles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleLeft, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
 
-
 export default function EventsCheckout() {
     let renderedAmt = 20;
     const [events, setEvents] = useState(data.slice(0,renderedAmt));
