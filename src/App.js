@@ -16,6 +16,10 @@ import Payment from './components/Payment';
 import BackHome from './components/BackHome';
 
 
+navigator.geolocation.getCurrentPosition(function(position) {
+  console.log("Latitude is: ", position.coords.latitude);
+  console.log("Longitude is: ", position.coords.longitude);
+});
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);

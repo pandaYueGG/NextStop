@@ -24,7 +24,7 @@ export default function EventsCheckout() {
                 fontWeight: 'bold',
                 marginTop: 10,
             }}
-        >Events in San Francisco during your stay...</h3>
+        >Local events during your stay...</h3>
         <div style={{alignItems: 'center'}}>
             <div
                 style={{
