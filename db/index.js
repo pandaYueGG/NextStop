@@ -1,3 +1,5 @@
+const config = require('../config.js');
+
 var mysql = require('mysql');
 
 var dbConnection;
