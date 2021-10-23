@@ -37,7 +37,7 @@ module.exports = {
 }
 ```
 
-4. run schema.sql in mysql
+4. Run schema.sql in mysql
 
 6. Build with webpack:
 ```sh
