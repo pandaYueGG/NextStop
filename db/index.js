@@ -4,12 +4,7 @@ var mysql = require('mysql');
 
 var dbConnection;
 
-dbConnection = mysql.createConnection({
-  user: 'root',
-  host: 'localhost',
-  password: '',
-  database: 'NSDB'
-});
+dbConnection = mysql.createConnection(config);
 
 dbConnection.connect((err) => {
   if (err) {
