@@ -1,5 +1,14 @@
 # NextStop
 
+# Index
+<ol>
+    <li><a href="#Summary">Summary</a></li>
+    <li><a href="#Prerequisites">Prerequisites</a></li>
+    <li><a href="#Usage">Usage</a></li>
+    <li><a href="#Module-Description">Module Description</a></li>
+    <li><a href="#Authors">Author</a></li>
+</ol>
+
 # Summary
 
 NextStop is an All-in-One travel and events web application, which allows travelers to find and book flights, hotels and events all in one place. What distinguishes NextStop from other competitors is its user friendly appeal to travelers of ages between 18-30 to bring the ease and stress free feel of an exciting trip. 
