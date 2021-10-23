@@ -1,15 +1,10 @@
-// build out an index.js file with the password set properly
+const config = require('../config.js');
 
 var mysql = require('mysql');
 
 var dbConnection;
 
-dbConnection = mysql.createConnection({
-  user: 'root',
-  host: 'localhost',
-  password: '', /* <= SET PASSWORD HERE*/
-  database: 'NSDB'
-});
+dbConnection = mysql.createConnection(config);
 
 dbConnection.connect((err) => {
   if (err) {

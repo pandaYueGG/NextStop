@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# NextStop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Index
+<ol>
+    <li><a href="#Summary">Summary</a></li>
+    <li><a href="#Prerequisites">Prerequisites</a></li>
+    <li><a href="#Usage">Usage</a></li>
+    <li><a href="#Module-Description">Module Description</a></li>
+    <li><a href="#Authors">Author</a></li>
+</ol>
 
-## Available Scripts
+# Summary
 
-In the project directory, you can run:
+NextStop is an All-in-One travel and events web application, which allows travelers to find and book flights, hotels and events all in one place. What distinguishes NextStop from other competitors is its user friendly appeal to travelers of ages between 18-30 to bring the ease and stress free feel of an exciting trip. 
 
-### `yarn start`
+# Prerequisites
+```sh
+Node v14.17.5
+npm 6.14.14
+MySQL 8.0.26
+```
+# Usage 
+1. Run `npm install` for all dependencies
+ 
+3. Access MySQL
+```sh
+mysql -u root -p
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. Create a config.js file in the root directory with the following layout 
+```sh
+module.exports = {
+  user: 'root',
+  host: 'localhost',
+  password: '',
+  database: 'NSDB'
+}
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+4. Run schema.sql in mysql
 
-### `yarn test`
+6. Build with webpack:
+```sh
+npm run build
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+7. Start server: 
 
-### `yarn build`
+```sh
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Modle Description
+#### Login/Signup
+#### landing Page
+#### Event Search Page
+#### Hotel Search Page
+#### Flights checkout process
+#### User Dashboard
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Authors
+- Nicholas Wai
+- Jacques Dubois
+- Robin Jeng
+- Crystal Lee
+- Kevin Yang
+- Yue Zhang
