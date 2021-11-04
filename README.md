@@ -50,7 +50,7 @@ npm run build
 npm start
 ```
 
-## Modle Description
+## Module Description
 #### Login/Signup
 #### landing Page
 #### Event Search Page
